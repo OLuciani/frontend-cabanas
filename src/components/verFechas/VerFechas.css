@@ -1,0 +1,93 @@
+.contenedor-calendario {
+    display: grid;  
+}
+
+.titulo-consultar-fechas {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.calendario {
+    justify-self: center;
+    color: rgb(0, 0, 255);
+}
+
+.button-ver-fechas {
+    width: 150px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    justify-self: center;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: gray;
+    color: white;
+}
+
+.button-ver-fechas:hover {
+    background-color: rgb(73, 73, 198);
+    color: white
+    
+}
+
+.contenedor-importante {
+    justify-self: center;
+    border: solid 2px red;
+    width: 350px;
+    margin-top: 2vh;
+}
+
+.titulo-importante {
+    color: red;
+    font-weight: 700;
+    margin-bottom: auto;
+}
+
+.texto-importante {
+   text-align: left;
+   margin-left: 5px;
+   margin-bottom: 5px;
+}
+
+.días-seleccionados { 
+    font-size: 18px;
+    font-weight: 700;
+    color: blue;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.error-fechas-repetidas {
+    font-size: 25px;
+    font-weight: 700;
+    color: red;
+}
+
+.span-desde-hasta {
+    color: blue;
+    font-weight: 700;
+    margin-left: 10px;
+} 
+
+.titulo-días-a-reservar {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: blue;
+
+}
+
+.días-reservados {
+    margin-bottom: 5px;
+}
+
+@media (min-width: 750px) {
+    .contenedor-importante {
+        width: 700px;
+    }
+}
+
+
+
+

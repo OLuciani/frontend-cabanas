@@ -1,0 +1,131 @@
+.box-cabañas {
+    min-height: 87.5vh;
+}
+
+.name-cabaña {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.contenedor-general-cabañas {
+    top: 0;
+    padding-top: 1vh;
+    width: 100vw;
+    min-height: 84.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contenedor-cabañas {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cartel-cabanas-mas-3 {
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    position: absolute;
+    right: 15px;
+    bottom: -15px;
+}
+
+.contenedor-cabañas a{
+   text-decoration: none;
+   color: black !important;
+}
+
+.box-cabaña {
+    margin: auto;
+}
+
+.contenedor-image-cabaña1 {
+    width: 300px; 
+}
+
+.image-cabañas {
+    width: 300px;
+    height: 225px;
+    margin-bottom: 5px;
+}
+
+/* .image-cabañas:hover {
+    width: 330px;
+    height: 247.5px;
+} */
+
+.contenedor-image-cabaña2 {
+    width: 300px;
+    height: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.div-images-cabaña{
+    width: 148px;
+    display: grid;
+}
+
+.images-cabaña {
+    width: 147px;
+}
+
+/* .images-cabaña:hover {
+    width: 151px;
+    height: 112.5px;
+} */
+
+
+@media (min-width: 600px) {
+   .contenedor-cabañas {
+      /*  margin-bottom: 20px; */
+        width: 600px;
+    }
+    
+    .contenedor-cabañas:hover {
+        box-shadow: 3px 3px 3px 3px;
+    }
+
+    .box-cabaña{ 
+       height: 225px;
+       display: flex;
+       flex-wrap: wrap;
+       flex-direction: row;
+       justify-content:space-evenly
+    }
+
+    .contenedor-image-cabaña1 {
+        width: 300px;
+    }
+
+    .image-cabañas {
+        width: 300px;
+        height: 225px;
+    }
+
+    .contenedor-image-cabaña2 {
+        width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .div-images-cabaña{
+       width: 140px;
+       display: grid;
+    }
+
+    .images-cabaña {
+        justify-self: center;
+        width: 145px;
+        height: 110px;
+    }
+
+}

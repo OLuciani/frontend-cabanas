@@ -1,0 +1,8 @@
+.double-calendar {
+    display: flex;
+  }
+  
+  .calendar {
+    width: 50%;
+    margin: 10px;
+  }

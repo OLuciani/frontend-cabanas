@@ -1,0 +1,81 @@
+.contenedor-detalles-cabana {
+  min-height: 85.5vh;
+}
+
+.carousel {
+    margin-top: 0px;
+    margin-bottom: 2vh;
+  }
+
+  .titulo-detalles-cabaña {
+    margin-top: 1vh;
+  }
+  
+  .imagen-carousel {
+      width: 100vw;
+      height:60vw;
+      justify-self: center;
+  }
+
+  .carousel-caption {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+
+  .contenedor-items-detalles-cabaña {
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 3vw;
+    text-align: left;
+  }
+ 
+  .boton-fechas-disponibles {
+    width: 200px;
+    font-size: px;
+    background-color: grey;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .boton-fechas-disponibles:hover {
+    background-color: black;
+  }
+
+  @media (min-width: 750px) {
+    .imagen-carousel {
+      width: 80vw;
+      height: 54vw;
+      /* justify-self: center; */
+    }
+  }
+
+  @media (min-width: 900px) {
+    .imagen-carousel {
+      width: 60vw;
+      height: 40vw;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .imagen-carousel {
+      width: 51vw;
+      height: 34vw;
+    }
+  }
+  
+  @media (min-width: 1800px) {
+    .imagen-carousel {
+      width: 58vw;
+      height: 38.5vw;
+    }
+  }
+  
+  
+  
+  
+  
+  

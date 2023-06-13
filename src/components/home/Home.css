@@ -1,0 +1,147 @@
+.contenedor-home {
+    width: 100vw;
+    min-height: 85.5vh;
+}
+
+.box-image-portada {
+    position: relative;
+}
+
+.titulo-home {
+    position: absolute;
+    bottom: -15px;
+    left: 30%;
+    right: 30%;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.image-portada {
+    width: 100%;
+}
+
+.div-portada2 { 
+    width: 100%;
+}
+
+.image-portada2 {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.div-texto-portada2 {
+    width: 100%;
+}
+
+.texto-portada2 {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.div-portada3 {
+    width: 100%;
+}
+
+.image-portada3 {
+    width: 100%;
+} 
+
+.div-texto-portada3 {
+    width: 100%;
+}
+
+.texto-portada3 {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+@media (min-width: 700px) {
+    .titulo-home {
+        font-size: 18px;
+        bottom: -10px;
+    }
+
+    .div-portada2 {  
+        width: 100%;
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+     
+    .image-portada2 {
+        width: 50%;
+        margin-bottom: 40px;
+    }
+    
+    .div-texto-portada2 {
+        width: 50%;
+        display: grid;
+    }
+    
+    .texto-portada2 {
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: left;
+        align-self: center;
+    }
+    
+    .div-portada3 {
+        width: 100%;
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    
+    .image-portada3 {
+        width: 50%;
+        justify-self: right;
+    } 
+    
+    .div-texto-portada3 {
+        width: 50%;
+        display: grid;
+    }
+    
+    .texto-portada3 {
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: left;
+        align-self: center;
+    }
+}
+
+@media (min-width: 1000px) {
+    .titulo-home {
+        font-size: 20px;
+        bottom: -5px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .titulo-home {
+        font-size: 24px;
+        bottom: 10px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .titulo-home {
+        font-size: 30px;
+        bottom: 10px;
+    }
+}
+
+
+
+
+
+
+/* .div-date-picker {
+    height: 100px;
+    justify-self: center;
+} */

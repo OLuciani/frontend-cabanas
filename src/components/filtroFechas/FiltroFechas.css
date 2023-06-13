@@ -1,0 +1,210 @@
+.contenedor-date-picker {
+    display: grid;
+    margin-bottom: 10px;
+}
+
+.box-date-picker {
+    display: flex;
+    width: 350px;
+    justify-self: center;
+    margin-top: 2vh;
+}
+
+.text-date {
+    width: 150px;
+    height: 20px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.label-desde {
+    height: 25px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 5px;
+    background-color: rgb(68, 68, 192);
+    color: white;
+    border-radius: 3px;
+}
+
+.label-hasta {
+    height: 25px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-left: 15px;
+    margin-right: 5px;
+    background-color: rgb(68, 68, 192);
+    color: white;
+    border-radius: 3px;
+}
+
+.calendar {
+    min-width: 117px;
+    height: 25px;
+}
+
+.titulo-buscar-fechas {
+    margin-top: 2vh;
+}
+
+.contenedor-chequear-cabañas {
+    top: 0;
+    padding-top: 1vh;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contenedor-filtro-cabañas {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cartel-mas-3 {
+    color: white;
+    font-size: 30px;
+   /*  font-weight: 500; */
+    position: absolute;
+    right: 15px;
+    bottom: -15px;
+}
+
+.box-chequear-cabañas {
+    /* width: 350px; */
+    margin: auto;
+}
+
+.name-filtro-cabaña {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.box-filtro-cabaña {
+    margin: auto;
+}
+
+.cont-image-cabaña1 {
+    width: 300px; 
+}
+
+.image-filtro-cabañas {
+    width: 300px;
+    height: 225px;
+    margin-bottom: 5px;
+}
+
+.cont-image-filtro-cabaña2 {
+    width: 300px;
+    height: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.div-images-filtro-cabaña{
+    width: 148px;
+    display: grid;
+}
+
+.images-filtro-cabaña {
+    width: 147px; 
+}
+ 
+.linea-divisoriaF-filtrar-fechas {
+    margin-top: -5px;
+} 
+
+/* .boton-buscar-cabañas {
+    width: 250px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: gray;
+    color: white;
+}
+
+.boton-buscar-cabañas:hover {
+    background-color: black;
+} */
+
+.mensaje-no-fechas-disponibles {
+    font-size: 20px;
+    color: red;
+    font-weight: 700;
+}
+
+.mensaje-aqui-puedes {
+    margin-bottom: 0;
+}
+
+.boton-cabañas-filtro-fechas {
+    width: 140px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: gray;
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.boton-cabañas-filtro-fechas:hover {
+    background-color: rgb(68, 68, 192);;
+   /* background-color: black; */
+}
+
+
+
+
+
+@media (min-width: 620px) {
+    .contenedor-filtro-cabañas {
+     
+         width: 600px;
+     }
+
+     .contenedor-filtro-cabañas:hover {
+        box-shadow: 5px 5px 5px 5px;
+     }
+
+     .box-filtro-cabaña{ 
+        height: 225px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content:space-evenly
+     }
+
+     .cont-image-cabaña1 {
+        width: 300px;
+    }
+
+    .image-filtro-cabañas {
+        width: 300px;
+        height: 225px;
+    }
+
+    .cont-image-filtro-cabaña2 {
+        width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content:space-around;
+    }
+
+    .div-images-filtro-cabaña{
+        width: 140px;
+        display: grid;
+    }
+
+    .images-filtro-cabaña {
+        width: 145px;
+        height: 110px;
+    }
+}

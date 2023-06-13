@@ -1,0 +1,9 @@
+.name-button {
+    color: rgb(196, 154, 154);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.name-button:hover {
+    color: white;
+}

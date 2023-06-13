@@ -1,0 +1,21 @@
+[
+    {
+        "id": "1",
+        "name": "Cabaña 1",
+        "rooms": 3,
+        "description": "Cabaña enclavada en la montaña, a pocos metros del río. Cuenta con 1 cama matrimonial y 2 camas en c/dormitorio restante.",
+        "price": 22000,
+        "url_image": "/img/mountains-6933693_1280.jpg",
+        "available_days": ["May 10 2023", "May 11 2023"]
+    },
+    {
+        "id": "2",
+        "name": "Cabaña 2",
+        "rooms": 2,
+        "description": "Cabaña enclavada junto al lago. Cuenta con 1 cama matrimonial y 3 camas en el dormitorio restante.",
+        "price": 19000,
+        "url_image": "/img/cabañaLagoEmbarcadero.jpg",
+        "available_days": ["May 18 2023", "May 19 2023"]
+    }
+]
+

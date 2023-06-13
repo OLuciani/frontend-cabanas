@@ -1,0 +1,23 @@
+.footer {
+    background-color: black;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .copyright {
+    color: white;
+    margin-top: 2vh;
+  }
+
+  .logo-facebook {
+    color: white;
+  }
+
+  .logo-instagram {
+    color: white;
+  }
