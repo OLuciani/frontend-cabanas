@@ -28,7 +28,7 @@ const Home = () => {
             <FiltroFechas />
           </div>
 
-          <h3 className='titulo-por-que'>¿Por qué alojarse en cabañas?</h3>
+          <h3 className='titulo-por-que'>¿ Por qué alojarse en cabañas ?</h3>
 
           <div className='div-portada2'>
             <img className='image-portada2' src={imageCabañaPortada2} alt="Imagen Cabaña" />
