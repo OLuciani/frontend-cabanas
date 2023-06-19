@@ -8,6 +8,7 @@ export default function ContextProvider({children}) {
     const [endDate, setEndDate] = useState("");
     const [data, setData] = useState([]);
     const [fechasReservadas, setFechasReservadas] = useState([]);
+    /* const [cabañasDisponibles, setCabañasDisponibles] = useState([]); */
 
   /*   useEffect(()=> {
         axios("data.json")

@@ -9,16 +9,24 @@
 
 .titulo-home {
     position: absolute;
-    bottom: -15px;
-    left: 30%;
-    right: 30%;
+    bottom: 2vh;
+    left: 25%;
+    right: 25%;
     color: white;
     font-size: 16px;
     font-weight: 600;
 }
 
-.image-portada {
+.image-portada-completa {
     width: 100%;
+}
+
+.image-portada {
+    display: none;
+}
+
+.titulo-por-que {
+    margin-bottom: 3vh;
 }
 
 .div-portada2 { 
@@ -58,11 +66,33 @@
     text-align: left;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 425px) {
+    .titulo-home {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 680px) {
+    .image-portada-completa {
+        display: none;
+    }
+
+    .image-portada {
+        width: 100%;
+        display: block;
+    }
+
     .titulo-home {
         font-size: 18px;
         bottom: -10px;
     }
+}
+
+@media (min-width: 700px) {
+   /*  .titulo-home {
+        font-size: 18px;
+        bottom: -10px;
+    } */
 
     .div-portada2 {  
         width: 100%;
@@ -118,8 +148,16 @@
 @media (min-width: 1000px) {
     .titulo-home {
         font-size: 20px;
-        bottom: -5px;
+       /*  bottom: -5px; */
     }
+
+    .texto-portada2 {
+       font-size: 18px;
+    }
+
+    .texto-portada3 {
+        font-size: 18px;
+     }
 }
 
 @media (min-width: 1300px) {
@@ -135,13 +173,3 @@
         bottom: 10px;
     }
 }
-
-
-
-
-
-
-/* .div-date-picker {
-    height: 100px;
-    justify-self: center;
-} */

@@ -54,7 +54,7 @@ const VerFechas = () => {
         }
 
         const td = totalDays(date_1, date_2);
-        console.log(td);
+        //console.log(td);
 
         setFechasReservas(cabaña.available_days);
 
@@ -66,18 +66,18 @@ const VerFechas = () => {
             tdFechas.push(date.toDateString());
         }
 
-        console.log(...tdFechas);
+        //console.log(...tdFechas);
 
         let nuevasReservas = tdFechas.filter(fecha => !fechasReservas.includes(fecha));
         setNuevasReservas(nuevasReservas);
-        console.log(nuevasReservas);
+        //console.log(nuevasReservas);
 
-        console.log(cabaña.available_days);
+        //console.log(cabaña.available_days);
 
         const fechasRepetidas = nuevasReservas.filter(fecha => cabaña.available_days.includes(fecha));
         //setFechasRepetidas(fechasRepetidas);
 
-        console.log(fechasRepetidas); 
+        //console.log(fechasRepetidas); 
 
         if (fechasRepetidas.length === 0) {
             setMostrarBotonReservar(true);
@@ -89,7 +89,7 @@ const VerFechas = () => {
 
         const calculatedCheckOut = new Date(date_2.getTime() + 24 * 60 * 60 * 1000);
         setCheckOut(calculatedCheckOut);
-        console.log(checkOut);
+        //console.log(checkOut);
 
     };
 
@@ -146,7 +146,7 @@ const VerFechas = () => {
         );
 
 
-        console.log(nuevasReservas)
+        //console.log(nuevasReservas);
 
     return (
         <>
