@@ -1,12 +1,11 @@
 .contenedor-date-picker {
+    margin: auto;
     display: grid;
     margin-bottom: 10px;
 }
 
 .box-date-picker {
     display: flex;
-    width: 350px;
-    justify-self: center;
     margin-top: 2vh;
 }
 
@@ -23,7 +22,7 @@
     height: 25px;
     padding-left: 2px;
     padding-right: 2px;
-    margin-right: 5px;
+    margin-right: 2px;
     background-color: rgb(68, 68, 192);
     color: white;
     border-radius: 3px;
@@ -34,14 +33,14 @@
     padding-left: 2px;
     padding-right: 2px;
     margin-left: 2.5vw;
-    margin-right: 5px;
+    margin-right: 2px;
     background-color: rgb(68, 68, 192);
     color: white;
     border-radius: 3px;
 }
 
 .calendar {
-    min-width: 117px;
+    width: 105px;
     height: 25px;
 }
 
@@ -144,11 +143,16 @@
 }
 
 .boton-cabañas-filtro-fechas:hover {
-    background-color: rgb(68, 68, 192);;
-   /* background-color: black; */
+    background-color: rgb(68, 68, 192);
 }
 
-
+.message-evaluando-datos {
+    color: red;
+    font-size: 20px;
+    font-weight:600;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
 
 
 

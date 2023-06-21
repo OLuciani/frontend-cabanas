@@ -179,28 +179,15 @@ const VerFechas = () => {
                 
                 {date_1   & date_2  ? <button className='button-ver-fechas' location='reload' onClick={onSaveDates}>Verificar fechas</button>: null}
 
-                   
-                    
-               {/*  {nuevasReservas.length > 0 &&
-                    <div className='contenedor-dias-reservados'>
-                        <p className='titulo-días-a-reservar'>Los días a reservar son:</p>
-
-                        {
-                            nuevasReservas.map((fecha, index) => <p key={index} className="días-reservados">{new Date(fecha).toLocaleDateString()}</p>)
-                        }
-                    </div>
-                } */}
 
                 {mostrarError ? (
                     <p className='error-fechas-repetidas'>Vuelve a elegir fechas, hay fechas reservadas intercaladas.</p>
                 ) : (
                     mostrarBotonReservar && checkOut && (
                         <>
-                        <p className='titulo-días-a-reservar'>Los días a reservar son {nuevasReservas.length}: <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {checkOut.toLocaleDateString()}.</p>
-                        {/* {
-                            nuevasReservas.map((fecha, index) => <p key={index} className="días-reservados">{new Date(fecha).toLocaleDateString()}</p>)
-                        } */}
-                        <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
+                            <p className='titulo-días-a-reservar'>Los días a reservar son {nuevasReservas.length}: <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {checkOut.toLocaleDateString()}.</p>
+                            
+                            <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
                         </>
                     )
                         
