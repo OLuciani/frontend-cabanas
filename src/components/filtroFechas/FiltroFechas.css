@@ -1,47 +1,65 @@
 .contenedor-date-picker {
     margin: auto;
-    display: grid;
+    /* display: grid; */
     margin-bottom: 10px;
 }
 
 .box-date-picker {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
     margin-top: 2vh;
 }
 
-.text-date {
+.one-calendar1 {
+    width: 170px;
+}
+
+.one-calendar2 {
+    width: 170px;
+    margin-left: 2vw;
+}
+
+/* .text-date {
     width: 150px;
     height: 20px;
     margin-left: 10px;
     font-size: 16px;
     font-weight: 700;
     text-align: center;
-}
+} */
 
 .label-desde {
+    width: 52px;
     height: 25px;
     padding-left: 2px;
     padding-right: 2px;
     margin-right: 2px;
+    margin-bottom: 10px;
     background-color: rgb(68, 68, 192);
     color: white;
     border-radius: 3px;
 }
 
 .label-hasta {
+    width: 52px;
     height: 25px;
     padding-left: 2px;
     padding-right: 2px;
-    margin-left: 2.5vw;
+    /* margin-left: 5.5vw; */
     margin-right: 2px;
+    margin-bottom: 10px;
     background-color: rgb(68, 68, 192);
     color: white;
     border-radius: 3px;
 }
 
 .calendar {
-    width: 105px;
+    width: 115px;
     height: 25px;
+    font-size: 16px;
 }
 
 .titulo-buscar-fechas {
@@ -136,14 +154,16 @@
     width: 140px;
     font-size: 18px;
     border-radius: 5px;
-    background-color: gray;
-    color: white;
-    font-weight: 500;
+    /* background-color: gray; */
+    background-color: lightgray;
+    /* color: white; */
+    font-weight: 600;
     margin-top: 10px;
 }
 
 .boton-cabañas-filtro-fechas:hover {
     background-color: rgb(68, 68, 192);
+    color: white;
 }
 
 .message-evaluando-datos {

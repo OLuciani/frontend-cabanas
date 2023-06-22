@@ -47,21 +47,26 @@ const FiltroFechas = () => {
         <h4 className='titulo-buscar-fechas'>Buscar por fechas</h4>
         <div className='caja-date-picker'>
           <div className='box-date-picker'>
-            <label className='label-desde'>Desde:</label>
-            <input
-              className='calendar'
-              type='date'
-              onBlur={(e) => inf.setStartDate(e.target.value)}
-              min={fechaActual.toFormat('yyyy-MM-dd')}
-            />
-            <label className='label-hasta'>Hasta:</label>
-            <input
-              className='calendar c2'
-              type='date'
-              onChange={(e) => inf.setEndDate(e.target.value)}
-              min={inf.startDate ? inf.startDate : fechaActual.toFormat('yyyy-MM-dd')}
-              max='9999-12-31'
-            />
+            <div className='one-calendar1'>
+              <label className='label-desde'>Desde:</label>
+              <input
+                className='calendar'
+                type='date'
+                onBlur={(e) => inf.setStartDate(e.target.value)}
+                min={fechaActual.toFormat('yyyy-MM-dd')}
+              />
+            </div>
+
+            <div className='one-calendar2'>
+              <label className='label-hasta'>Hasta:</label>
+              <input
+                className='calendar c2'
+                type='date'
+                onChange={(e) => inf.setEndDate(e.target.value)}
+                min={inf.startDate ? inf.startDate : fechaActual.toFormat('yyyy-MM-dd')}
+                max='9999-12-31'
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -119,7 +124,7 @@ const FiltroFechas = () => {
               <>
                 <hr />
 
-                <p className='mensaje-no-fechas-disponibles'>DEL {fechaDesde.toFormat('dd/MM/yyyy')} al {fechaHasta.toFormat('dd/MM/yyyy')} NO HAY CABAÑAS DISPONIBLES</p>
+                <p className='mensaje-no-fechas-disponibles'>Del {fechaDesde.toFormat('dd/MM/yyyy')} al {fechaHasta.toFormat('dd/MM/yyyy')} NO HAY CABAÑAS DISPONIBLES</p>
 
                 <br />
 
