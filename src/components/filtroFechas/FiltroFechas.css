@@ -14,22 +14,13 @@
 }
 
 .one-calendar1 {
-    width: 170px;
+    width: 173px;
 }
 
 .one-calendar2 {
-    width: 170px;
+    width: 173px;
     margin-left: 2vw;
 }
-
-/* .text-date {
-    width: 150px;
-    height: 20px;
-    margin-left: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    text-align: center;
-} */
 
 .label-desde {
     width: 52px;
@@ -57,7 +48,7 @@
 }
 
 .calendar {
-    width: 115px;
+    width: 118px;
     height: 25px;
     font-size: 16px;
 }
@@ -91,7 +82,6 @@
 }
 
 .box-chequear-cabañas {
-    /* width: 350px; */
     margin: auto;
 }
 
@@ -154,31 +144,28 @@
     width: 140px;
     font-size: 18px;
     border-radius: 5px;
-    /* background-color: gray; */
     background-color: lightgray;
-    /* color: white; */
     font-weight: 600;
     margin-top: 10px;
 }
 
 .boton-cabañas-filtro-fechas:hover {
-    background-color: rgb(68, 68, 192);
+    /* background-color: rgb(68, 68, 192); */
+    background-color: black;
     color: white;
 }
 
-.message-evaluando-datos {
+.message-buscando-cabañas {
     color: red;
-    font-size: 20px;
+    font-size: 30px;
     font-weight:600;
     margin-top: 3vh;
     margin-bottom: 3vh;
 }
 
 
-
 @media (min-width: 620px) {
     .contenedor-filtro-cabañas {
-     
          width: 600px;
      }
 

@@ -102,7 +102,7 @@ const Cabanas = () => {
                           <div className='div-images-cabaña' key={index}>
                             <img
                               className='images-cabaña'
-                              src={`https://cabanas-backend.onrender.com//${image}`}
+                              src={`https://cabanas-backend.onrender.com/${image}`}
                               alt={`Imagen ${image}`}
                             />
                           </div>

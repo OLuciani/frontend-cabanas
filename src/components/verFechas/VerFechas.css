@@ -1,3 +1,7 @@
+.box-consultar-fechas {
+    min-height: 86vh;
+}
+
 .contenedor-calendario {
     display: grid;  
 }
@@ -21,12 +25,14 @@
     justify-self: center;
     border-radius: 5px;
     font-weight: 700;
-    background-color: gray;
-    color: white;
+    /* background-color: gray; */
+    background-color: lightgray;
+    /* color: white; */
 }
 
 .button-ver-fechas:hover {
-    background-color: rgb(73, 73, 198);
+    /* background-color: rgb(73, 73, 198); */
+    background-color: black;
     color: white
     
 }
@@ -35,6 +41,7 @@
     justify-self: center;
     border: solid 2px red;
     width: 350px;
+    /* height: fit-content; */
     margin-top: 2vh;
 }
 
@@ -70,21 +77,43 @@
     margin-left: 10px;
 } 
 
-.titulo-días-a-reservar {
+.message-días-a-reservar {
     margin-bottom: 5px;
     font-size: 18px;
     font-weight: 700;
-    color: blue;
-
+    /* color: blue; */
 }
 
 .días-reservados {
     margin-bottom: 5px;
 }
 
-@media (min-width: 750px) {
+.contenedor-mesagge-fechas-que-reservaste {
+    
+    display: grid;
+    
+}
+
+
+.mesagge-fechas-que-reservaste {
+    width: 90%;
+    justify-self: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    /* color: blue; */
+    color: salmon;
+}
+
+@media (min-width: 768px) {
     .contenedor-importante {
         width: 700px;
+    }
+
+    .mesagge-fechas-que-reservaste {
+        width: 700px;
+        
     }
 }
 

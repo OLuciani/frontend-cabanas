@@ -136,7 +136,7 @@ const FiltroFechas = () => {
               </>
             )}
           </>
-          : <p className='message-evaluando-datos'>Evaluando datos...</p>
+          : <p className='message-buscando-cabañas'>Buscando cabañas...</p>
         )}
         <hr className='linea-divisoriaF-filtrar-fechas' />
       </div>

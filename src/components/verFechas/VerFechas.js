@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import Calendar from 'react-calendar';
 import NavBar from '../navBar/NavBar';
 import SideBar from '../sideBar/SideBar';
@@ -6,6 +6,7 @@ import "./VerFechas.css";
 import { useParams } from 'react-router-dom';
 import { useContext } from "react";
 import { Context } from "../context/Context";
+import Footer from '../footer/Footer';
 
 
 const VerFechas = () => { 
@@ -35,6 +36,7 @@ const VerFechas = () => {
     const [mostrarBotonReservar, setMostrarBotonReservar] = useState(false);
     const [mostrarError, setMostrarError] = useState(false);
     const [checkOut, setCheckOut] = useState(null);
+    const [fechasQueReservaste, setFechasQueReservaste] = useState("");
     
 
     const { _id } = useParams();
@@ -92,6 +94,8 @@ const VerFechas = () => {
         //console.log(checkOut);
 
     };
+ 
+     
 
     const reservarDates = async (e) => {
         if (initialDate.toLocaleString() === endDate.toLocaleString()) {
@@ -115,7 +119,7 @@ const VerFechas = () => {
                 });
         }
 
-        await fetch(`http://localhost:5005/cabanas/update/${_id}`, {
+        await fetch(`https://cabanas-backend.onrender.com/cabanas/update/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -131,6 +135,9 @@ const VerFechas = () => {
                 console.log(err);
             });
 
+            setFechasQueReservaste(`RESERVA EXITOSA. Has reservado la ${cabaña.name} por ${nuevasReservas.length} días: desde las 10 hs del ${date_1.toLocaleDateString()} hasta las 10 hs del ${checkOut.toLocaleDateString()}.`);
+
+            console.log(fechasQueReservaste);
     };
 
     let disabledDates = cabaña.available_days.map((oneDate) => {
@@ -145,55 +152,74 @@ const VerFechas = () => {
             date.getDate() === disabledDate.getDate()
         );
 
+        //console.log(nuevasReservas);  
 
-        //console.log(nuevasReservas);
+        const containerRef = useRef(null);
+
+        useEffect(() => {
+            if (containerRef.current && fechasQueReservaste) {
+              containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, [fechasQueReservaste]);
 
     return (
         <>
             <NavBar />
             <SideBar />
 
-            <h2 className='titulo-consultar-fechas'>Consultar fechas {cabaña.name}</h2>
+            <div className='box-consultar-fechas'>
 
-            <div className='contenedor-calendario'>
-                <Calendar className="calendario" tileDisabled={desactivarFechasReservadas} returnValue='range' selectRange onChange={onChange} minDate={new Date()} showDoubleView={doubleCalendar()} />
+                <h2 className='titulo-consultar-fechas'>Consultar fechas {cabaña.name}</h2>
 
-                <div className='contenedor-importante'>
-                    <p className='titulo-importante'>IMPORTANTE !!</p>
-                    <p className='texto-importante'>Para reservar un solo día clieckear 2 veces el día elegido.<br />Para reservar dos o más días clickear primero el día de inicio de la reserva y luego el último día a reservar.</p>
-                </div>
+                <div className='contenedor-calendario'>
+                    <Calendar className="calendario" tileDisabled={desactivarFechasReservadas} returnValue='range' selectRange onChange={onChange} minDate={new Date()} showDoubleView={doubleCalendar()} />
 
-                {new Date(value[0]).toString() !== "Invalid Date" && (
-                    <div className='Contenedor-días-seleccionados'>
-                        <p className='días-seleccionados'>
-                            <strong>Los días seleccionados son: </strong>
-                        </p>
-
-                        <span className='span-desde-hasta'>Desde: </span><span>{new Date(value[0]).toLocaleDateString()}</span>
-
-                        <span className='span-desde-hasta'>Hasta: </span><span>{new Date(value[1]).toLocaleDateString()}</span>
+                    <div className='contenedor-importante'>
+                        <p className='titulo-importante'>IMPORTANTE !!</p>
+                        <p className='texto-importante'>Para reservar un solo día clieckear 2 veces el día elegido.<br />Para reservar dos o más días clickear primero el día de inicio de la reserva y luego el último día a reservar.</p>
                     </div>
-                )}
 
-                
-                
-                {date_1   & date_2  ? <button className='button-ver-fechas' location='reload' onClick={onSaveDates}>Verificar fechas</button>: null}
+                    {new Date(value[0]).toString() !== "Invalid Date" && (
+                        <div className='Contenedor-días-seleccionados'>
+                            <p className='días-seleccionados'>
+                                <strong>Los días seleccionados son: </strong>
+                            </p>
 
+                            <span className='span-desde-hasta'>Desde: </span><span>{new Date(value[0]).toLocaleDateString()}</span>
 
-                {mostrarError ? (
-                    <p className='error-fechas-repetidas'>Vuelve a elegir fechas, hay fechas reservadas intercaladas.</p>
-                ) : (
-                    mostrarBotonReservar && checkOut && (
-                        <>
-                            <p className='titulo-días-a-reservar'>Los días a reservar son {nuevasReservas.length}: <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {checkOut.toLocaleDateString()}.</p>
-                            
-                            <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
-                        </>
-                    )
-                        
-                )}
+                            <span className='span-desde-hasta'>Hasta: </span><span>{new Date(value[1]).toLocaleDateString()}</span>
+                        </div>
+                    )}
+
+                    
+                    
+                    {date_1  & date_2 ? <button className='button-ver-fechas' location='reload' onClick={onSaveDates}>Verificar fechas</button>: null}
+
+                    <div ref={containerRef}>
+                        {mostrarError ? (
+                            <p className='error-fechas-repetidas'>Vuelve a elegir fechas, hay fechas reservadas intercaladas.</p>
+                        ) : (
+                            mostrarBotonReservar && checkOut && (
+                                <>
+                                    <p className='message-días-a-reservar'>Los días a reservar son {nuevasReservas.length}: <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {checkOut.toLocaleDateString()}.</p>
+                                    
+                                    <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
+
+                                    <div className='contenedor-mesagge-fechas-que-reservaste'>
+                                        <p className='mesagge-fechas-que-reservaste'>{fechasQueReservaste}</p>
+                                    </div>
+                                </>
+                            )
+                                
+                        )}
+                    </div>
+                </div>
             </div>
 
+            <footer className="">
+                <Footer />
+            </footer>
+    
         </>
     )
 
