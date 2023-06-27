@@ -68,7 +68,14 @@ const VerFechas = () => {
             tdFechas.push(date.toDateString());
         }
 
-        //console.log(...tdFechas);
+        
+
+        console.log(...tdFechas);
+
+        tdFechas.pop();
+
+        console.log(...tdFechas);
+
 
         let nuevasReservas = tdFechas.filter(fecha => !fechasReservas.includes(fecha));
         setNuevasReservas(nuevasReservas);
@@ -135,7 +142,7 @@ const VerFechas = () => {
                 console.log(err);
             });
 
-            setFechasQueReservaste(`RESERVA EXITOSA. Has reservado la ${cabaña.name} por ${nuevasReservas.length} días: desde las 10 hs del ${date_1.toLocaleDateString()} hasta las 10 hs del ${checkOut.toLocaleDateString()}.`);
+            setFechasQueReservaste(`RESERVA EXITOSA. Has reservado la ${cabaña.name} por ${nuevasReservas.length} días: desde las 10 hs del ${date_1.toLocaleDateString()} hasta las 10 hs del ${date_2.toLocaleDateString()}.`);
 
             console.log(fechasQueReservaste);
     };
@@ -201,7 +208,7 @@ const VerFechas = () => {
                         ) : (
                             mostrarBotonReservar && checkOut && (
                                 <>
-                                    <p className='message-días-a-reservar'>Los días a reservar son {nuevasReservas.length}: <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {checkOut.toLocaleDateString()}.</p>
+                                    <p className='message-días-a-reservar'>Los días a reservar son {nuevasReservas.length}: <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {date_2.toLocaleDateString()}.</p>
                                     
                                     <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
 

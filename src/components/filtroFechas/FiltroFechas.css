@@ -1,11 +1,15 @@
 .contenedor-date-picker {
-    margin: auto;
-    /* display: grid; */
     margin-bottom: 10px;
 }
 
+.caja-date-picker {
+    width: 100vw;
+    /* display: grid; */
+}
+
 .box-date-picker {
-    width: 100%;
+    /* justify-self: center; */
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -14,44 +18,61 @@
 }
 
 .one-calendar1 {
-    width: 173px;
+    width: 155px;
+    display: flex;
+    
 }
 
 .one-calendar2 {
-    width: 173px;
+    width: 155px;
     margin-left: 2vw;
+    display: flex;
+    
 }
 
 .label-desde {
-    width: 52px;
+    flex: 0 0 57.5px; 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     height: 25px;
-    padding-left: 2px;
-    padding-right: 2px;
     margin-right: 2px;
     margin-bottom: 10px;
     background-color: rgb(68, 68, 192);
     color: white;
     border-radius: 3px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .label-hasta {
-    width: 52px;
-    height: 25px;
-    padding-left: 2px;
-    padding-right: 2px;
-    /* margin-left: 5.5vw; */
+    flex: 0 0 57.5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px; 
     margin-right: 2px;
     margin-bottom: 10px;
     background-color: rgb(68, 68, 192);
     color: white;
     border-radius: 3px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .calendar {
-    width: 118px;
+    width: 100px;
     height: 25px;
     font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-align: center;
+    border: solid 3px blue;
 }
+
+/* .color-text-calendar1 {
+    color: white;
+} */
 
 .titulo-buscar-fechas {
     margin-top: 2vh;
@@ -75,7 +96,6 @@
 .cartel-mas-3 {
     color: white;
     font-size: 30px;
-   /*  font-weight: 500; */
     position: absolute;
     right: 15px;
     bottom: -15px;
@@ -150,7 +170,6 @@
 }
 
 .boton-cabañas-filtro-fechas:hover {
-    /* background-color: rgb(68, 68, 192); */
     background-color: black;
     color: white;
 }
@@ -163,6 +182,17 @@
     margin-bottom: 3vh;
 }
 
+
+@media (min-width: 425px) {
+    .label-desde {
+        flex: 0 0 62px; 
+    }
+    
+    .label-hasta {
+        flex: 0 0 62px;
+        margin-left: 5px;
+    }
+}
 
 @media (min-width: 620px) {
     .contenedor-filtro-cabañas {
@@ -206,5 +236,16 @@
     .images-filtro-cabaña {
         width: 145px;
         height: 110px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .label-desde {
+        flex: 0 0 70px; 
+    }
+    
+    .label-hasta {
+        flex: 0 0 70px;
+        margin-left: 5px;
     }
 }
