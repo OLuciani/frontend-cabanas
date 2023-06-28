@@ -192,9 +192,9 @@ const VerFechas = () => {
                                 <strong>Los días seleccionados son: </strong>
                             </p>
 
-                            <span className='span-desde-hasta'>Desde: </span><span>{new Date(value[0]).toLocaleDateString()}</span>
+                            <span className='span-desde-hasta'>Entrada: </span><span>{new Date(value[0]).toLocaleDateString()}</span>
 
-                            <span className='span-desde-hasta'>Hasta: </span><span>{new Date(value[1]).toLocaleDateString()}</span>
+                            <span className='span-desde-hasta'>Salida: </span><span>{new Date(value[1]).toLocaleDateString()}</span>
                         </div>
                     )}
 
@@ -208,7 +208,7 @@ const VerFechas = () => {
                         ) : (
                             mostrarBotonReservar && checkOut && (
                                 <>
-                                    <p className='message-días-a-reservar'>Los días a reservar son {nuevasReservas.length}: <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {date_2.toLocaleDateString()}.</p>
+                                    <p className='message-días-a-reservar'>Los días a reservar son {nuevasReservas.length} (con {nuevasReservas.length} noches): <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {date_2.toLocaleDateString()}.</p>
                                     
                                     <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
 

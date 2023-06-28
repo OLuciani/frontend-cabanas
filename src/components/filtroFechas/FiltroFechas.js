@@ -597,6 +597,7 @@ const FiltroFechas = () => {
                 onChange={handleStartDateChange}
                 minDate={fechaActual.toJSDate()}
                 dateFormat='dd/MM/yyyy'
+                onFocus={(e) => e.target.readOnly = true}
               />
             </div>
 
@@ -610,6 +611,7 @@ const FiltroFechas = () => {
                 minDate={startDate || fechaActual.toJSDate()}
                 maxDate={new Date(9999, 11, 31)}
                 dateFormat='dd/MM/yyyy'
+                onFocus={(e) => e.target.readOnly = true}
               />
             </div>
           </div>
