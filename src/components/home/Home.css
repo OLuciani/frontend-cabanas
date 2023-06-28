@@ -40,12 +40,13 @@
 
 .div-texto-portada2 {
     width: 100%;
+    display: grid;
 }
 
 .texto-portada2 {
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 95%;
     text-align: left;
+    justify-self: center;
 }
 
 .div-portada3 {
@@ -58,12 +59,13 @@
 
 .div-texto-portada3 {
     width: 100%;
+    display: grid;
 }
 
 .texto-portada3 {
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 95%;
     text-align: left;
+    justify-self: center;
 }
 
 @media (min-width: 425px) {
@@ -109,14 +111,14 @@
     
     .div-texto-portada2 {
         width: 50%;
-        display: grid;
+        
     }
     
     .texto-portada2 {
-        margin-left: 20px;
-        margin-right: 20px;
+        width: 90%;
         text-align: left;
         align-self: center;
+        justify-self: center;
     }
     
     .div-portada3 {
@@ -134,21 +136,19 @@
     
     .div-texto-portada3 {
         width: 50%;
-        display: grid;
     }
     
     .texto-portada3 {
-        margin-left: 20px;
-        margin-right: 20px;
+        width: 90%;
         text-align: left;
         align-self: center;
+        justify-self: center;
     }
 }
 
 @media (min-width: 1000px) {
     .titulo-home {
         font-size: 20px;
-       /*  bottom: -5px; */
     }
 
     .texto-portada2 {

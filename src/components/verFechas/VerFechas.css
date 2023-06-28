@@ -12,6 +12,7 @@
 }
 
 .calendario {
+    width: 95% !important;
     justify-self: center;
     color: rgb(0, 0, 255);
 }
@@ -25,13 +26,10 @@
     justify-self: center;
     border-radius: 5px;
     font-weight: 700;
-    /* background-color: gray; */
     background-color: lightgray;
-    /* color: white; */
 }
 
 .button-ver-fechas:hover {
-    /* background-color: rgb(73, 73, 198); */
     background-color: black;
     color: white
     
@@ -40,8 +38,7 @@
 .contenedor-importante {
     justify-self: center;
     border: solid 2px red;
-    width: 350px;
-    /* height: fit-content; */
+    width: 95%;
     margin-top: 2vh;
 }
 
@@ -78,10 +75,12 @@
 } 
 
 .message-días-a-reservar {
+    width: 95%;
+    text-align: center;
     margin-bottom: 5px;
     font-size: 18px;
     font-weight: 700;
-    /* color: blue; */
+    margin: auto;
 }
 
 .días-reservados {
@@ -89,31 +88,53 @@
 }
 
 .contenedor-mesagge-fechas-que-reservaste {
-    
-    display: grid;
-    
+    display: grid;  
 }
 
 
 .mesagge-fechas-que-reservaste {
-    width: 90%;
+    width: 95%;
     justify-self: center;
     margin-top: 15px;
     margin-bottom: 5px;
     font-size: 22px;
     font-weight: 700;
-    /* color: blue; */
     color: salmon;
 }
 
 @media (min-width: 768px) {
+    .calendario {
+        width: 80% !important;
+    }
+
     .contenedor-importante {
-        width: 700px;
+        width: 80%;
+    }
+
+    .message-días-a-reservar {
+        width: 80%;
     }
 
     .mesagge-fechas-que-reservaste {
-        width: 700px;
-        
+        width: 80%;  
+    }
+}
+
+@media (min-width: 950px) {
+    .calendario {
+        width: 65% !important;
+    }
+
+    .contenedor-importante {
+        width: 65%;
+    }
+
+    .message-días-a-reservar {
+        width: 65%;
+    }
+
+    .mesagge-fechas-que-reservaste {
+        width: 65%;   
     }
 }
 

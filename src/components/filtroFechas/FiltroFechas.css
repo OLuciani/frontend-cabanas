@@ -20,7 +20,6 @@
 .one-calendar1 {
     width: 155px;
     display: flex;
-    
 }
 
 .one-calendar2 {
@@ -69,10 +68,6 @@
     text-align: center;
     border: solid 3px blue;
 }
-
-/* .color-text-calendar1 {
-    color: white;
-} */
 
 .titulo-buscar-fechas {
     margin-top: 2vh;
@@ -148,7 +143,17 @@
     margin-top: 15px;
 } 
 
-.mensaje-no-fechas-disponibles {
+.contenedor-titulo-las-cabañas-disponibles {
+    width: 100%;
+    display: grid;
+}
+
+.titulo-las-cabañas-disponibles {
+    width: 90%;
+    justify-self: center;
+}
+
+.mensaje-no-cabañas-disponibles {
     font-size: 20px;
     color: red;
     font-weight: 700;
@@ -176,10 +181,26 @@
 
 .message-buscando-cabañas {
     color: red;
-    font-size: 30px;
-    font-weight:600;
+    font-size: 20px;
+    font-weight:800;
     margin-top: 3vh;
     margin-bottom: 3vh;
+}
+
+/* .contenedor-message-reservas-mínimas {
+    display: grid;
+}
+
+.box-message-reservas-mínimas {
+    justify-self: center;
+    width: 90%;
+    background-color: red;
+} */
+
+.message-reservas-mínimas {
+    color: red;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 

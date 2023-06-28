@@ -37,6 +37,7 @@ const VerFechas = () => {
     const [mostrarError, setMostrarError] = useState(false);
     const [checkOut, setCheckOut] = useState(null);
     const [fechasQueReservaste, setFechasQueReservaste] = useState("");
+    const [díasAReservar, setDíasAReservar] = useState("");
     
 
     const { _id } = useParams();
@@ -99,6 +100,8 @@ const VerFechas = () => {
         const calculatedCheckOut = new Date(date_2.getTime() + 24 * 60 * 60 * 1000);
         setCheckOut(calculatedCheckOut);
         //console.log(checkOut);
+
+        setDíasAReservar(`Los días a reservar son ${nuevasReservas.length} (con ${nuevasReservas.length} noches): desde las 10 hs del ${date_1.toLocaleDateString()} hasta las 10 hs del ${date_2.toLocaleDateString()}.`)
 
     };
  
@@ -164,6 +167,12 @@ const VerFechas = () => {
         const containerRef = useRef(null);
 
         useEffect(() => {
+            if (containerRef.current && díasAReservar) {
+              containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, [díasAReservar]);
+
+        useEffect(() => {
             if (containerRef.current && fechasQueReservaste) {
               containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -183,7 +192,7 @@ const VerFechas = () => {
 
                     <div className='contenedor-importante'>
                         <p className='titulo-importante'>IMPORTANTE !!</p>
-                        <p className='texto-importante'>Para reservar un solo día clieckear 2 veces el día elegido.<br />Para reservar dos o más días clickear primero el día de inicio de la reserva y luego el último día a reservar.</p>
+                        <p className='texto-importante'>Para reservar un solo día clieckear 2 veces el día elegido. Para reservar dos o más días clickear primero el día de inicio de la reserva y luego el último día a reservar.</p>
                     </div>
 
                     {new Date(value[0]).toString() !== "Invalid Date" && (
@@ -208,7 +217,9 @@ const VerFechas = () => {
                         ) : (
                             mostrarBotonReservar && checkOut && (
                                 <>
-                                    <p className='message-días-a-reservar'>Los días a reservar son {nuevasReservas.length} (con {nuevasReservas.length} noches): <br />desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {date_2.toLocaleDateString()}.</p>
+                                    {/* <p className='message-días-a-reservar'>Los días a reservar son {nuevasReservas.length} (con {nuevasReservas.length} noches): desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {date_2.toLocaleDateString()}.</p> */}
+
+                                    <p className='message-días-a-reservar'>{díasAReservar}</p>
                                     
                                     <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
 
