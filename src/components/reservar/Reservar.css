@@ -1,0 +1,87 @@
+.contenedor-reservar {
+    min-height: 85.5vh;
+}
+
+.titulo-reservar {
+    margin-top: 2vh;
+}
+
+.image-reservar {
+    width: 300px;
+    height: 225px;
+    margin-bottom: 3vh;
+}
+
+.conteneror-fechas-boton {
+    display: grid;
+}
+
+.contenedor-entrada-salida {
+    width: 250px;
+    justify-self: center;
+}
+
+.fecha-reserva {
+    text-align: left;
+}
+
+.boton-confirmar-fechas {
+    margin-bottom: 3vh;
+    width: 190px;
+    padding: 5px;
+    font-size: 18px;
+    justify-self: center;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: lightgray;
+}
+
+.boton-confirmar-fechas:hover {
+    background-color: black;
+    color: white
+}
+
+.ocultar {
+    display: none;
+}
+
+.contenedor-dias-a-reservar {
+    display: grid;
+}
+
+.dias-a-reservar {
+    width: 90%;
+    justify-self: center;
+}
+
+.boton-confirmar-reserva {
+    width: 190px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    justify-self: center;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: lightgray;
+}
+
+.boton-confirmar-reserva:hover {
+    background-color: black;
+    color: white
+}
+
+.contenedor-mesagge-fechas-q-reservaste {
+    display: grid;  
+}
+
+
+.mesagge-fechas-q-reservaste {
+    width: 95%;
+    justify-self: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    color: salmon;
+}

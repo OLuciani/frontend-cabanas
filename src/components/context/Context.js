@@ -1,4 +1,3 @@
-//import axios from "axios";
 import React, {useState, useEffect} from "react";
 
 export const Context = React.createContext({});
@@ -8,13 +7,8 @@ export default function ContextProvider({children}) {
     const [endDate, setEndDate] = useState("");
     const [data, setData] = useState([]);
     const [fechasReservadas, setFechasReservadas] = useState([]);
-    /* const [cabañasDisponibles, setCabañasDisponibles] = useState([]); */
-
-  /*   useEffect(()=> {
-        axios("data.json")
-        .then((res) => setData(res.data));
-    },[]); */
-
+    const [totalDaysReservation, setTotalDaysReservation] = useState([]);
+   
     useEffect(() => { 
         fetch('https://cabanas-backend.onrender.com/api/list')
           .then((res) => res.json())
@@ -25,7 +19,7 @@ export default function ContextProvider({children}) {
       }, []);
    
     return (
-        <Context.Provider value={{startDate, setStartDate, endDate, setEndDate, data, setData, fechasReservadas, setFechasReservadas}}>
+        <Context.Provider value={{startDate, setStartDate, endDate, setEndDate, data, setData, fechasReservadas, setFechasReservadas, totalDaysReservation, setTotalDaysReservation}}>
             {children}
         </Context.Provider>
     )

@@ -35,6 +35,10 @@
     margin-left: 3vw;
 }
 
+.direccion {
+    text-align: left;
+}
+
 .espacio {
     margin-right: 5px;
 }

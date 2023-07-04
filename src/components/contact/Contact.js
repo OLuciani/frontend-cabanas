@@ -19,17 +19,17 @@ const Contact = () => {
         <div className='items-contact'>
           <div className='box-p-icon'>
             <i className="bi bi-geo-alt-fill"></i>
-            <p><b className='espacio'>Dirección:</b>Sucre 327 - Ciudad de Córdoba<br/>Argentina.</p>
+            <p className='direccion'><b className='espacio'>Dirección:</b>Sucre 32 - Ciudad de Córdoba<br/>Argentina.</p>
           </div> 
 
           <div className='box-p-icon'>
             <i className="bi bi-telephone-fill" />
-            <p><b>Teléfono: </b>54 9 351 123456</p>
+            <p><b className='espacio'>Teléfono:</b>54 9 351 123456</p>
           </div>   
         
           <div className='box-p-icon'>   
             <i className="bi bi-envelope-at-fill" />
-            <p><b>Email:</b> lucianiautomoviles@gmail.com</p>
+            <p><b className='espacio'>Email:</b> hernandezcabañas@gmail.com</p>
           </div> 
 
           <div className='box-p-icon'>

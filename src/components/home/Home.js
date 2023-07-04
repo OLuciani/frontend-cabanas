@@ -1,7 +1,6 @@
 import React from 'react';
 import "./Home.css";
 import imageCabañaPortada4 from "./imgHome/cabaña_pexels-photo-259618.jpeg";
-//import imageCabañaPortada3 from "./imgHome/imagePortada2.jpg";
 import imageCabañaPortada2 from "./imgHome/cabin-5724699_1280.jpg";
 import imageCabañaPortadaCompleta from "./imgHome/image1_country-house-5498652_1280.jpg";
 import imageCabañaPortada from "./imgHome/country-house-5498652_1280.jpg";
@@ -11,7 +10,7 @@ import SideBar from '../sideBar/SideBar';
 import FiltroFechas from '../filtroFechas/FiltroFechas';
 
 const Home = () => {
-  //const startEndDate = useContext(Context);
+
   return (
     <>
         <NavBar />

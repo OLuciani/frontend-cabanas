@@ -18,6 +18,8 @@ const DetallesCabana = () => {
   let cabaña = infoBD.data.find((cab) => cab._id === _id);
   let images = cabaña.url_images;
 
+  //console.log(infoBD.startDate);
+
   return (
     <>
       <NavBar />
@@ -42,9 +44,15 @@ const DetallesCabana = () => {
           </Carousel>
         </Container>
 
-        <Link to={`/verFechas/${cabaña._id}`}>
-          <button className="boton-fechas-disponibles">Fechas Disponibles</button>
-        </Link> 
+        { infoBD.startDate !== "" && infoBD.endDate !== "" 
+          ? <Link to={`/reservar/${cabaña._id}`}>
+              <button className="boton-fechas-disponibles">Iniciar Reserva</button>
+            </Link> 
+
+          : <Link to={`/verFechas/${cabaña._id}`}>
+              <button className="boton-fechas-disponibles">Fechas Disponibles</button>
+            </Link> 
+        }
 
         <div className="contenedor-items-detalles-cabaña">
           <p className="price-detalles-cabaña">

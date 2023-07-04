@@ -7,6 +7,8 @@ import Home from './components/home/Home';
 import Contact from './components/contact/Contact';
 import VerFechas from './components/verFechas/VerFechas';
 import DetallesCabana from './components/detallesCabana/DetallesCabana';
+//import DetallesReservas from './components/detallesReservas/DetallesReservas';
+import Reservar from './components/reservar/Reservar';
 
 function App() {
   
@@ -18,6 +20,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/cabanas" element={<Cabanas />} />
             <Route path="/detallesCabana/:_id" element={<DetallesCabana />} />
+            {/* <Route path="/detallesReservas/:_id" element={<DetallesReservas />} /> */}
+            <Route path="/reservar/:_id" element={<Reservar />} />
             <Route path="/verFechas/:_id" element={<VerFechas />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

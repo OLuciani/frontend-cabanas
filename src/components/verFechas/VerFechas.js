@@ -32,19 +32,23 @@ const VerFechas = () => {
     const [initialDate, setInitialDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [fechasReservas, setFechasReservas] = useState([]);
-    //const [fechasRepetidas, setFechasRepetidas] = useState([]);
     const [mostrarBotonReservar, setMostrarBotonReservar] = useState(false);
     const [mostrarError, setMostrarError] = useState(false);
     const [checkOut, setCheckOut] = useState(null);
     const [fechasQueReservaste, setFechasQueReservaste] = useState("");
     const [díasAReservar, setDíasAReservar] = useState("");
-    
+    const [showMinimumDaysMessage, setShowMinimumDaysMessage] = useState(false);
+    const [cantidadFechasClickeadas, setCantidadFechasClickeadas] = useState(Number);
+    const [ocultar, setOcultar] = useState(false);
 
     const { _id } = useParams();
     let cabaña = informacion.data.find((cab) => cab._id === _id);
 
     const date_1 = new Date(value[0]);
     const date_2 = new Date(value[1]);
+
+    let fecha1 = date_1;
+    let fecha2 = date_2;
 
     const onSaveDates = () => {
         setInitialDate(new Date(value[0]).getDate());
@@ -69,7 +73,13 @@ const VerFechas = () => {
             tdFechas.push(date.toDateString());
         }
 
-        
+        setCantidadFechasClickeadas(tdFechas.length);
+
+        if (cantidadFechasClickeadas >= 3) {
+            setShowMinimumDaysMessage(false);
+          } else {
+            setShowMinimumDaysMessage(true);
+        }
 
         console.log(...tdFechas);
 
@@ -101,8 +111,9 @@ const VerFechas = () => {
         setCheckOut(calculatedCheckOut);
         //console.log(checkOut);
 
-        setDíasAReservar(`Los días a reservar son ${nuevasReservas.length} (con ${nuevasReservas.length} noches): desde las 10 hs del ${date_1.toLocaleDateString()} hasta las 10 hs del ${date_2.toLocaleDateString()}.`)
+        setDíasAReservar(`Los días a reservar son: ${nuevasReservas.length} días (y ${nuevasReservas.length} noches) desde las 10 hs del ${date_1.toLocaleDateString()} hasta las 10 hs del ${date_2.toLocaleDateString()}.`)
 
+        setOcultar(true);
     };
  
      
@@ -167,6 +178,12 @@ const VerFechas = () => {
         const containerRef = useRef(null);
 
         useEffect(() => {
+            if (containerRef.current && fecha1 && fecha2) {
+              containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, [fecha1, fecha2]);
+
+        useEffect(() => {
             if (containerRef.current && díasAReservar) {
               containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -184,53 +201,61 @@ const VerFechas = () => {
             <SideBar />
 
             <div className='box-consultar-fechas'>
-
                 <h2 className='titulo-consultar-fechas'>Consultar fechas {cabaña.name}</h2>
+
+                <img
+                    className='image-ver-fechas'
+                    src={`https://cabanas-backend.onrender.com/${cabaña.url_image}`}
+                    alt={`Imagen ${cabaña.name}`}
+                    loading='lazy'
+                />
 
                 <div className='contenedor-calendario'>
                     <Calendar className="calendario" tileDisabled={desactivarFechasReservadas} returnValue='range' selectRange onChange={onChange} minDate={new Date()} showDoubleView={doubleCalendar()} />
 
                     <div className='contenedor-importante'>
                         <p className='titulo-importante'>IMPORTANTE !!</p>
-                        <p className='texto-importante'>Para reservar un solo día clieckear 2 veces el día elegido. Para reservar dos o más días clickear primero el día de inicio de la reserva y luego el último día a reservar.</p>
+                        <p className='texto-importante'>Debes clickear primero el día de entrada y luego el día de la salida de la cabaña. Cada día de reserva se cuenta desde las 10 de la mañana hasta las 10 de la mañana del día siguiente.</p>
                     </div>
 
-                    {new Date(value[0]).toString() !== "Invalid Date" && (
-                        <div className='Contenedor-días-seleccionados'>
-                            <p className='días-seleccionados'>
-                                <strong>Los días seleccionados son: </strong>
-                            </p>
-
-                            <span className='span-desde-hasta'>Entrada: </span><span>{new Date(value[0]).toLocaleDateString()}</span>
-
-                            <span className='span-desde-hasta'>Salida: </span><span>{new Date(value[1]).toLocaleDateString()}</span>
-                        </div>
-                    )}
-
-                    
-                    
-                    {date_1  & date_2 ? <button className='button-ver-fechas' location='reload' onClick={onSaveDates}>Verificar fechas</button>: null}
-
-                    <div ref={containerRef}>
-                        {mostrarError ? (
-                            <p className='error-fechas-repetidas'>Vuelve a elegir fechas, hay fechas reservadas intercaladas.</p>
-                        ) : (
-                            mostrarBotonReservar && checkOut && (
-                                <>
-                                    {/* <p className='message-días-a-reservar'>Los días a reservar son {nuevasReservas.length} (con {nuevasReservas.length} noches): desde las 10 hs del {date_1.toLocaleDateString()} hasta las 10 hs del {date_2.toLocaleDateString()}.</p> */}
-
-                                    <p className='message-días-a-reservar'>{díasAReservar}</p>
-                                    
-                                    <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
-
-                                    <div className='contenedor-mesagge-fechas-que-reservaste'>
-                                        <p className='mesagge-fechas-que-reservaste'>{fechasQueReservaste}</p>
-                                    </div>
-                                </>
-                            )
-                                
+                    <div className={`${(ocultar ? "ocultar" : null)} conteneror-fechas-boton`}>
+                        {new Date(value[0]).toString() !== "Invalid Date" && (
+                            <div className='contenedor-días-seleccionados'>
+                                <div className='box-días-seleccionados'>
+                                    <p className='entrada-salida'>ENTRADA: {new Date(value[0]).toLocaleDateString()} a las 10 hs.</p>
+                                    <p className='entrada-salida'>SALIDA: {new Date(value[1]).toLocaleDateString()} a las 10 hs.</p>
+                                </div>
+                            </div>
                         )}
+
+                    
+                        <div ref={containerRef}>
+                            {date_1  & date_2 ? <button className='button-ver-fechas' location='reload' onClick={onSaveDates}>Verificar fechas</button>: null}
+                        </div>
                     </div>
+
+                    {cantidadFechasClickeadas >= 3 ? (
+                        <>
+                            <div ref={containerRef}>
+                                {mostrarError ? (
+                                    <p className='error-fechas-repetidas'>Vuelve a elegir fechas, hay fechas reservadas intercaladas.</p>
+                                ) : (
+                                    mostrarBotonReservar && checkOut && (
+                                        <>
+                                            <p className='message-días-a-reservar'>{díasAReservar}</p>
+                                            
+                                            <button className='button-ver-fechas' location='reload' onClick={reservarDates}>RESERVAR</button>
+
+                                            <div className='contenedor-mesagge-fechas-que-reservaste'>
+                                                <p className='mesagge-fechas-que-reservaste'>{fechasQueReservaste}</p>
+                                            </div>
+                                        </>
+                                    )
+                                        
+                                )}
+                            </div>
+                        </>
+                    ) : (showMinimumDaysMessage && <div className='contenedor-message-reservas-mínimas'><div className='box-message-reservas-mínimas'><p className='message-reservas-mínimas'>Las reservas mínimas son por dos días</p></div></div>)}
                 </div>
             </div>
 

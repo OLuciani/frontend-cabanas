@@ -2,6 +2,10 @@
   min-height: 85.5vh;
 }
 
+.carousel-container {
+  margin-top: 2vh;
+}
+
 .carousel {
     margin-top: 0px;
     margin-bottom: 2vh;
