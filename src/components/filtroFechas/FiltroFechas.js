@@ -55,7 +55,7 @@ const FiltroFechas = ({datos}) => {
     setEndDate(date);
     inf.setEndDate(date ? date.toISOString() : null);
 
-    const newCantidadFechasClickeadas = tdFechas.length + 1;
+    const newCantidadFechasClickeadas = tdFechas.length;
     if (newCantidadFechasClickeadas >= 3) {
       setShowMinimumDaysMessage(false);
     } else {

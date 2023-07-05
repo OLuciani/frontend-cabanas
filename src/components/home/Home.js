@@ -8,18 +8,9 @@ import NavBar from '../navBar/NavBar';
 import Footer from '../footer/Footer';
 import SideBar from '../sideBar/SideBar';
 import FiltroFechas from '../filtroFechas/FiltroFechas';
-//import { Context } from "../context/Context";
-//import { useContext, useEffect } from "react";
 
 const Home = () => {
-  /* const inf = useContext(Context);
-
-  useEffect(() => {
-    if(inf.startDate !== "" && inf.endDate !== "") {
-      <FiltroFechas datos={null} />
-    }
-  }, [inf]);
- */
+ 
   return (
     <>
         <NavBar />
@@ -33,7 +24,7 @@ const Home = () => {
           </div>
 
           <div className='contenedor-date-picker'>
-            <FiltroFechas /* datos={null} */ />
+            <FiltroFechas datos={null} />
           </div>
 
           <h3 className='titulo-por-que'>Por qué alojarse en cabañas ?</h3>
