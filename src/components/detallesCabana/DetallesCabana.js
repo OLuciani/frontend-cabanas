@@ -24,8 +24,9 @@ const DetallesCabana = () => {
     <>
       <NavBar />
 
+      {/* <SideBar className="bajar-sideBar" /> */}
+
       <div className="contenedor-detalles-cabana">
-        <SideBar className="bajar-sideBar" />
 
         <Container className="carousel-container">
           <Carousel fade>
@@ -43,6 +44,8 @@ const DetallesCabana = () => {
             ))}
           </Carousel>
         </Container>
+
+        <SideBar />
 
         { infoBD.startDate !== "" && infoBD.endDate !== "" 
           ? <Link to={`/reservar/${cabaña._id}`}>
@@ -77,11 +80,9 @@ const DetallesCabana = () => {
             <b>Precio por día:</b> $ {cabaña.price}
           </p>
         </div>
-
-        {/* <Link to={`/verFechas/${cabaña._id}`}>
-          <button className="boton-fechas-disponibles">Fechas Disponibles</button>
-        </Link> */}
       </div>
+
+      {/* <SideBar className="bajar-sideBar" /> */}
 
       <Footer />
     </>
