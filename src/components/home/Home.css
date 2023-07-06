@@ -1,6 +1,7 @@
 .contenedor-home {
-    width: 100vw;
+    width: 100%;
     min-height: 85.5vh;
+    overflow-x: hidden;
 }
 
 .box-image-portada {
@@ -91,11 +92,6 @@
 }
 
 @media (min-width: 700px) {
-   /*  .titulo-home {
-        font-size: 18px;
-        bottom: -10px;
-    } */
-
     .div-portada2 {  
         width: 100%;
         display:flex;

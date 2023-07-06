@@ -1,7 +1,3 @@
-/* .box-cabañas {
-    min-height: 87.5vh;
-} */
-
 .name-cabaña {
     margin-top: 10px;
     margin-bottom: 5px;
@@ -10,6 +6,7 @@
 }
 
 .contenedor-general-cabañas {
+    max-width: 100%;
     min-height: 86.5vh;
     top: 0;
     padding-top: 1vh;
