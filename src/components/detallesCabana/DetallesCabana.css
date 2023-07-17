@@ -49,6 +49,10 @@
     background-color: black;
   }
 
+  .ocultar-cont-det-cab {
+    display: none;
+  }
+
   @media (min-width: 750px) {
     .imagen-carousel {
       width: 80vw;

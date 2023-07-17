@@ -120,7 +120,7 @@ const VerFechas = () => {
 
     const reservarDates = async (e) => {
         if (initialDate.toLocaleString() === endDate.toLocaleString()) {
-            await fetch(`http://localhost:5005/cabanas/update/${_id}`, {
+            await fetch(`https://cabanas-backend.onrender.com/cabanas/update/${_id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

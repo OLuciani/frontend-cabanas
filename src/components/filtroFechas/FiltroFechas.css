@@ -73,6 +73,10 @@
     margin-top: 2vh;
 }
 
+.ocultar-filtro-fechas {
+    display: none;
+}
+
 .contenedor-chequear-cabañas {
     top: 0;
     padding-top: 1vh;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./Home.css";
 import imageCabañaPortada4 from "./imgHome/cabaña_pexels-photo-259618.jpeg";
 import imageCabañaPortada2 from "./imgHome/cabin-5724699_1280.jpg";
@@ -8,9 +8,36 @@ import NavBar from '../navBar/NavBar';
 import Footer from '../footer/Footer';
 import SideBar from '../sideBar/SideBar';
 import FiltroFechas from '../filtroFechas/FiltroFechas';
+import { Context } from "../context/Context";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
- 
+  let informacion = useContext(Context);
+  let location = useLocation();
+  const [shouldFetchData, setShouldFetchData] = useState(false);
+
+  useEffect(() => {
+    if (shouldFetchData) {
+      // Realizo una llamada a la API para obtener los datos actualizados
+      fetch('https://cabanas-backend.onrender.com/api/list')
+        .then((res) => res.json())
+        .then((allCabañas) => {
+          informacion.setData(allCabañas);
+          setShouldFetchData(false); // Establezco shouldFetchData a false después de actualizar los datos
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [shouldFetchData, informacion]);
+
+  useEffect(() => {
+    // Establezco shouldFetchData a true cada vez que cambie la ubicación
+    setShouldFetchData(true);
+    //console.log("Se ha navegado a la vista de Cabanas");
+  }, [location]);
+
+//poner el mismo useEffect que en el componente Cabanas para que se actualice inf y no me tire cabanas ya reservadas
+
+
   return (
     <>
         <NavBar />

@@ -9,6 +9,8 @@ import VerFechas from './components/verFechas/VerFechas';
 import DetallesCabana from './components/detallesCabana/DetallesCabana';
 //import DetallesReservas from './components/detallesReservas/DetallesReservas';
 import Reservar from './components/reservar/Reservar';
+import EnviarMail from './components/enviarEmail/EnviarEmail';
+//import { EnviarEmail } from './components/enviarEmail/EnviarEmail';
 
 function App() {
   
@@ -24,6 +26,7 @@ function App() {
             <Route path="/reservar/:_id" element={<Reservar />} />
             <Route path="/verFechas/:_id" element={<VerFechas />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/enviarEmail" element={<EnviarMail />} />
           </Routes>
         </BrowserRouter>
       </ContextProvider>

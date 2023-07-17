@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { Context } from "../context/Context";
@@ -23,8 +23,6 @@ const DetallesCabana = () => {
   return (
     <>
       <NavBar />
-
-      {/* <SideBar className="bajar-sideBar" /> */}
 
       <div className="contenedor-detalles-cabana">
 
@@ -82,7 +80,223 @@ const DetallesCabana = () => {
         </div>
       </div>
 
-      {/* <SideBar className="bajar-sideBar" /> */}
+      <Footer />
+    </>
+  );
+};
+
+export default DetallesCabana; */
+
+
+
+
+
+
+/* import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Context } from "../context/Context";
+import "./DetallesCabana.css";
+import { Carousel, Container } from "react-bootstrap";
+import NavBar from "../navBar/NavBar";
+import SideBar from "../sideBar/SideBar";
+import Footer from "../footer/Footer";
+import Reservar from "../reservar/Reservar";
+
+const DetallesCabana = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const infoBD = useContext(Context);
+  const { _id } = useParams();
+  let cabaña = infoBD.data.find((cab) => cab._id === _id);
+  let images = cabaña.url_images;
+
+  const [ocultarContenedor, setOcultarContenedor] = useState("");
+  const [mostrarComponenteReservar, setMostrarComponenteReservar] = useState(false);
+
+  //console.log(infoBD.startDate);
+
+  const onClickOcultar = () => {
+    setOcultarContenedor("ocultar-cont-det-cab");
+    setMostrarComponenteReservar(true);
+  }
+
+  return (
+    <>
+      <NavBar />
+
+      <div className={`contenedor-detalles-cabana ${ocultarContenedor}`}>
+
+        <Container className="carousel-container">
+          <Carousel fade>
+            {images.map((image, index) => (
+              <Carousel.Item key={index}>
+                <img
+                  className="imagen-carousel"
+                  src={`https://cabanas-backend.onrender.com/${image}`}
+                  alt={`Imagen ${index}`}
+                />
+                <Carousel.Caption className="carousel-caption">
+                  <p>{cabaña.name} ({index + 1})</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </Container>
+
+        <SideBar />
+
+        { infoBD.startDate !== "" && infoBD.endDate !== "" 
+          ? <button className="boton-fechas-disponibles" onClick={onClickOcultar}>Iniciar Reserva</button>
+
+          : <Link to={`/verFechas/${cabaña._id}`}>
+              <button className="boton-fechas-disponibles">Fechas Disponibles</button>
+            </Link> 
+        }
+
+        <div className="contenedor-items-detalles-cabaña">
+          <p className="price-detalles-cabaña">
+            <b>Cantidad de habitaciones:</b> {cabaña.rooms}
+          </p>
+        </div>
+
+        <div className="contenedor-items-detalles-cabaña">
+          <p className="description-detalles-cabaña">
+            <b>Descripción:</b> {cabaña.description}
+          </p>
+        </div>
+
+        <div className="contenedor-items-detalles-cabaña">
+          <p className="services-detalles-cabaña">
+            <b>Servicios:</b> {cabaña.services}
+          </p>
+        </div>
+
+        <div className="contenedor-items-detalles-cabaña">
+          <p className="price-detalles-cabaña">
+            <b>Precio por día:</b> $ {cabaña.price}
+          </p>
+        </div>
+      </div>
+
+      {
+        mostrarComponenteReservar ? <Reservar /> : null
+      }   
+
+      <Footer />
+    </>
+  );
+};
+
+export default DetallesCabana; */
+
+
+
+
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../context/Context";
+import "./DetallesCabana.css";
+import { Carousel, Container } from "react-bootstrap";
+import NavBar from "../navBar/NavBar";
+import SideBar from "../sideBar/SideBar";
+import Footer from "../footer/Footer";
+import Reservar from "../reservar/Reservar";
+
+const DetallesCabana = () => {
+  const infoBD = useContext(Context);
+  const { _id } = useParams();
+  let cabaña = infoBD.data.find((cab) => cab._id === _id);
+  let images = cabaña.url_images;
+
+  const [ocultarContenedor, setOcultarContenedor] = useState("");
+  const [mostrarComponenteReservar, setMostrarComponenteReservar] = useState(false);
+
+  const onClickOcultar = () => {
+    setOcultarContenedor("ocultar-cont-det-cab");
+    setMostrarComponenteReservar(true);
+  };
+
+  useLayoutEffect(() => {
+    const handleBeforeUnload = () => {
+      infoBD.setStartDate("");
+      infoBD.setEndDate("");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [infoBD]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <>
+      <NavBar />
+
+      <div className={`contenedor-detalles-cabana ${ocultarContenedor}`}>
+        <Container className="carousel-container">
+          <Carousel fade>
+            {images.map((image, index) => (
+              <Carousel.Item key={index}>
+                <img
+                  className="imagen-carousel"
+                  src={`https://cabanas-backend.onrender.com/${image}`}
+                  alt={`Imagen ${index}`}
+                />
+                <Carousel.Caption className="carousel-caption">
+                  <p>{cabaña.name} ({index + 1})</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </Container>
+
+        <SideBar />
+
+        {infoBD.startDate !== "" && infoBD.endDate !== "" ? (
+          <button className="boton-fechas-disponibles" onClick={onClickOcultar}>
+            Iniciar Reserva
+          </button>
+        ) : (
+          <Link to={`/verFechas/${cabaña._id}`}>
+            <button className="boton-fechas-disponibles">Fechas Disponibles</button>
+          </Link>
+        )}
+
+        <div className="contenedor-items-detalles-cabaña">
+          <p className="price-detalles-cabaña">
+            <b>Cantidad de habitaciones:</b> {cabaña.rooms}
+          </p>
+        </div>
+
+        <div className="contenedor-items-detalles-cabaña">
+          <p className="description-detalles-cabaña">
+            <b>Descripción:</b> {cabaña.description}
+          </p>
+        </div>
+
+        <div className="contenedor-items-detalles-cabaña">
+          <p className="services-detalles-cabaña">
+            <b>Servicios:</b> {cabaña.services}
+          </p>
+        </div>
+
+        <div className="contenedor-items-detalles-cabaña">
+          <p className="price-detalles-cabaña">
+            <b>Precio por día:</b> $ {cabaña.price}
+          </p>
+        </div>
+      </div>
+
+      {mostrarComponenteReservar ? <Reservar /> : null}
 
       <Footer />
     </>
