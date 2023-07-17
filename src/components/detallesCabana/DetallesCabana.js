@@ -259,8 +259,6 @@ const DetallesCabana = () => {
           </Carousel>
         </Container>
 
-        <SideBar />
-
         {infoBD.startDate !== "" && infoBD.endDate !== "" ? (
           <button className="boton-fechas-disponibles" onClick={onClickOcultar}>
             Iniciar Reserva
@@ -297,6 +295,8 @@ const DetallesCabana = () => {
       </div>
 
       {mostrarComponenteReservar ? <Reservar /> : null}
+
+      <SideBar />
 
       <Footer />
     </>
