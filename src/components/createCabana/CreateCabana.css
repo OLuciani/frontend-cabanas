@@ -1,0 +1,62 @@
+.contenedor-create-cabana {
+    min-height: 85.5vh;
+}
+
+.titulo-crear-cabaña {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.label-input-create-cabana{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.contenedor-inputs-create-cabana {
+    margin-bottom: 10px;
+}
+
+.input-create-cabana {
+    width: 300px;
+    border: solid 2px black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.boton-crear-cabaña {
+    width: 190px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.boton-crear-cabaña:hover {
+    background-color: black;
+    color: white;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 700;
+  }
+
+
+
+@media (min-width: 550px) {
+    .input-create-cabana {
+        width: 450px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .input-create-cabana {
+        width: 600px;
+    }
+}
+

@@ -1,0 +1,20 @@
+.message-cargando-details-users {
+    color: black;
+    font-size: 22px;
+    min-height: 70vh;
+    padding-top: 25vh;
+    font-weight: 700;
+}
+
+.titulo-details-users{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.contenedor-details-users {
+    display: grid;
+}
+
+.box-details-users {
+    justify-self: center;
+}

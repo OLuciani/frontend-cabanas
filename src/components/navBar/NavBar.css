@@ -42,7 +42,8 @@
     display: none;
   }
   
-  @media (min-width: 426px) {
+  /* @media (min-width: 426px) { */
+    @media (min-width: 730px) {
     .icono-burger {
       display: none;
     }

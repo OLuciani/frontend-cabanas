@@ -34,19 +34,60 @@
     margin-left: 3vw;
     text-align: left;
   }
- 
+
+  .botones-admin {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .boton-editar {
+    width: 190px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-weight: 700;
+  }
+
+  .boton-editar:hover {
+    background-color: blue;
+    color: white;
+  }
+
+  .boton-eliminar {
+    width: 190px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-weight: 700;
+  }
+
+  .boton-eliminar:hover {
+    background-color: red;
+    color: white;
+  }
+
   .boton-fechas-disponibles {
-    width: 200px;
-    font-size: px;
-    background-color: grey;
+    width: 190px;
+    font-size: 16px;
+    background-color: lightgray; 
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: white;
+    padding: 5px;
+    font-weight: 700;
   }
 
   .boton-fechas-disponibles:hover {
     background-color: black;
+    color: white;
   }
 
   .ocultar-cont-det-cab {

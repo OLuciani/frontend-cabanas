@@ -186,7 +186,6 @@ export default FiltroFechas; */
 
 
 
-
 import React, { useEffect, useRef, useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -203,6 +202,8 @@ const FiltroFechas = ({datos}) => {
   const [startDate, setStartDate] = useState(datos);
   const [endDate, setEndDate] = useState(datos);
   const [showMinimumDaysMessage, setShowMinimumDaysMessage] = useState(false);
+  const [showLabelEntrada, setShowLabelEntrada] = useState("");
+  const [showLabelSalida, setShowLabelSalida] = useState("");
 
   const fechaActual = DateTime.local().startOf('day');
 
@@ -253,6 +254,20 @@ const FiltroFechas = ({datos}) => {
     }
   };
 
+  useEffect(() => {
+    if(startDate) {
+      setShowLabelEntrada("show-label-entrada");
+    }
+  }, [startDate])
+  
+  useEffect(() => {
+    if(endDate) {
+      setShowLabelSalida("show-label-salida");
+    }
+  }, [endDate])
+  
+
+
   return (
     <>
       <div className='contenedor-date-picker' ref={containerRef}>
@@ -260,7 +275,7 @@ const FiltroFechas = ({datos}) => {
         <div className='caja-date-picker'>
           <div className='box-date-picker'>
             <div className='one-calendar1'>
-              {startDate && <label className='label-desde'>Entrada:</label>}
+              {/* {startDate && <label className='label-desde'>Entrada:</label>} */}
               <DatePicker
                 className='calendar'
                 placeholderText='Entrada'
@@ -271,10 +286,12 @@ const FiltroFechas = ({datos}) => {
                 onFocus={(e) => (e.target.readOnly = true)}
                 locale={es}
               />
+
+  	          <p className={`label-entrada ${showLabelEntrada}`}>Entrada</p>
             </div>
 
             <div className='one-calendar2'>
-              {endDate && <label className='label-hasta'>Salida:</label>}
+              {/* {endDate && <label className='label-hasta'>Salida:</label>} */}
               <DatePicker
                 className='calendar c2'
                 placeholderText='Salida'
@@ -286,6 +303,7 @@ const FiltroFechas = ({datos}) => {
                 onFocus={(e) => (e.target.readOnly = true)}
                 locale={es}
               />
+              <p className={`label-salida ${showLabelSalida}`}>Salida</p>
             </div>
           </div>
         </div>

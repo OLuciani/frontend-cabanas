@@ -341,7 +341,8 @@ const Reservar = () => {
   };
 
   const reservarDates = async () => {
-    await fetch(`https://cabanas-backend.onrender.com/cabanas/update/${_id}`, {
+    /* await fetch(`http://localhost:5005/api/update_cabana/${_id}`, { */
+    await fetch(`http://localhost:5005/cabanas/update/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -352,10 +353,10 @@ const Reservar = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        //console.log(`DEVOLUCIONNNNN ${}`)
+        console.log("reservarDates - Respuesta:", data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("reservarDates - Error:", err);
       });
 
     setFechasQueReservaste(
@@ -374,6 +375,9 @@ const Reservar = () => {
       "Se envió un mail a tu correo electrónico con los detalles de la reserva."
     );
     setMailEnviado(true);
+
+    information.setStartDate("");
+    information.setEndDate("");
   };
 
   const enviarCorreo = async () => {
@@ -385,6 +389,7 @@ const Reservar = () => {
       });
 
       try {
+        //const response = await axios.post('http://localhost:5005/api/send_mail', emailData); https://cabanas-backend.onrender.com
         const response = await axios.post('https://cabanas-backend.onrender.com/api/send_mail', emailData);
         console.log('Correo electrónico enviado:', response.data);
       } catch (error) {
@@ -395,8 +400,8 @@ const Reservar = () => {
 
   const onSubmit = async (data) => {
     try {
+      //const response = await axios.post("http://localhost:5005/api/reservation_register", data); 
       const response = await axios.post("https://cabanas-backend.onrender.com/api/reservation_register", data);
-
       console.log(response.data); 
       console.log("Se enviaron los datos del cliente a la Base de Datos");
       // Limpiar los campos después del envío exitoso
@@ -432,6 +437,7 @@ const Reservar = () => {
         <div>
           <img
             className="image-reservar"
+            /* src={`http://localhost:5005/${cabaña.url_image}`} */     
             src={`https://cabanas-backend.onrender.com/${cabaña.url_image}`}
             alt={`Imagen ${cabaña.name}`}
             loading="lazy"

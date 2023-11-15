@@ -196,7 +196,7 @@ export default DetallesCabana; */
 
 
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../context/Context";
 import "./DetallesCabana.css";
@@ -208,6 +208,53 @@ import Reservar from "../reservar/Reservar";
 
 const DetallesCabana = () => {
   const infoBD = useContext(Context);
+
+  let location = useLocation();
+  const [shouldFetchData, setShouldFetchData] = useState(false);
+
+  // Obtener el token JWT del almacenamiento local (localStorage)
+  const token = localStorage.getItem("token");
+
+  /* useEffect(() => {
+    if (shouldFetchData) {
+      // Realizo una llamada a la API para obtener los datos actualizados
+      //fetch('https://cabanas-backend.onrender.com/api/list') 
+      fetch('http://localhost:5005/api/list')
+        .then((res) => res.json())
+        .then((allCabañas) => {
+          infoBD.setData(allCabañas);
+          setShouldFetchData(false); // Establezco shouldFetchData a false después de actualizar los datos
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [shouldFetchData, infoBD]); */
+
+  useEffect(() => {
+    if (shouldFetchData) {
+      // Realiza una llamada a la API para obtener los datos actualizados
+      //fetch('http://localhost:5005/api/list', {
+      fetch('https://cabanas-backend.onrender.com/api/list', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}` // Agrega el token de autorización
+        }
+      })
+      .then((res) => res.json())
+      .then((allCabañas) => {
+        infoBD.setData(allCabañas);
+        setShouldFetchData(false); // Establece shouldFetchData a false después de actualizar los datos
+      })
+      .catch((error) => console.log(error));
+    }
+  }, [shouldFetchData, infoBD, token]);
+
+  useEffect(() => {
+    // Establezco shouldFetchData a true cada vez que cambie la ubicación
+    setShouldFetchData(true);
+    //console.log("Se ha navegado a la vista de Cabanas");
+  }, [location]);
+  
+  //const infoBD = useContext(Context);
   const { _id } = useParams();
   let cabaña = infoBD.data.find((cab) => cab._id === _id);
   let images = cabaña.url_images;
@@ -249,6 +296,7 @@ const DetallesCabana = () => {
                 <img
                   className="imagen-carousel"
                   src={`https://cabanas-backend.onrender.com/${image}`}
+                  /* src={`http://localhost:5005/${image}`} */
                   alt={`Imagen ${index}`}
                 />
                 <Carousel.Caption className="carousel-caption">
@@ -258,6 +306,23 @@ const DetallesCabana = () => {
             ))}
           </Carousel>
         </Container>
+
+         {/* Mostrar los botones "Editar cabaña" y "Eliminar cabaña"solo si el usuario es administrador */}
+         {localStorage.getItem('role') === 'admin' && ( 
+            <div className="contenedor-botones-admin">
+              <div className="botones-admin">
+                <Link to={`/updateCabana/${_id}`}>
+                  <button className="boton-editar">Editar cabaña</button>
+                </Link>
+
+                <Link to={`/deleteCabana/${_id}`}>
+                  <button className="boton-eliminar">Eliminar cabaña</button>
+                </Link>
+              </div>
+            </div>
+          )}
+       
+
 
         {infoBD.startDate !== "" && infoBD.endDate !== "" ? (
           <button className="boton-fechas-disponibles" onClick={onClickOcultar}>

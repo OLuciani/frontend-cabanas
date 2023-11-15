@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavBar from "../navBar/NavBar";
-import "./Cabanas.css";
+import "./EditCabana.css";
 import Footer from "../footer/Footer";
 import { Context } from "../context/Context";
 import { Link } from "react-router-dom";
 import SideBar from "../sideBar/SideBar";
 
-const Cabanas = () => {
+const EditCabana = () => {
   let informacion = useContext(Context);
   let location = useLocation();
   const [shouldFetchData, setShouldFetchData] = useState(false);
@@ -19,7 +19,6 @@ const Cabanas = () => {
     if (shouldFetchData) {
       // Realizo una llamada a la API para obtener los datos actualizados
       fetch('https://cabanas-backend.onrender.com/api/list')
-      /* fetch('http://localhost:5005/api/list') */
         .then((res) => res.json())
         .then((allCabañas) => {
           informacion.setData(allCabañas);
@@ -47,7 +46,7 @@ const Cabanas = () => {
             <div className="contenedor-cabañas" key={oneCabaña._id}>
               <h3 className="name-cabaña">{oneCabaña.name}</h3>
               <article>
-                <Link to={`/detallesCabana/${oneCabaña._id}`}>
+                <Link to={`/updateCabana/${oneCabaña._id}`}>
                   <div className="box-cabaña">
                     <div className="contenedor-image-cabaña1">
                       <img
@@ -87,4 +86,4 @@ const Cabanas = () => {
   );
 };
 
-export default Cabanas;
+export default EditCabana;

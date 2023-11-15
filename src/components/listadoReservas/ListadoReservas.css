@@ -1,0 +1,36 @@
+.titulo-listado-reservas {
+    margin-top: 2vh;
+}
+
+.contenedor-general-listado-reservas {
+    min-height: 85.5vh;
+}
+
+.contenedor-listado-reservas {
+    min-height: 85.5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around ;
+}
+
+.cargando-imagenes-listado-reservas {
+    color: black;
+    font-size: 22px;
+    min-height: 70vh;
+    padding-top: 25vh;
+    font-weight: 700;
+}
+
+.contenedor-una-reserva {
+    /* width: 300px; */
+    border: solid 1.5px black;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+}
+
+.contenedor-listado-reservas a {
+    text-decoration: none;
+    color: black;
+}

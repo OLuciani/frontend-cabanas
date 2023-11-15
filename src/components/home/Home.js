@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 
 const Home = () => {
   let informacion = useContext(Context);
+  
   let location = useLocation();
   const [shouldFetchData, setShouldFetchData] = useState(false);
 
@@ -32,7 +33,7 @@ const Home = () => {
   useEffect(() => {
     // Establezco shouldFetchData a true cada vez que cambie la ubicación
     setShouldFetchData(true);
-    //console.log("Se ha navegado a la vista de Cabanas");
+    //console.log("Se ha navegado a la vista de Home");
   }, [location]);
 
 //poner el mismo useEffect que en el componente Cabanas para que se actualice inf y no me tire cabanas ya reservadas

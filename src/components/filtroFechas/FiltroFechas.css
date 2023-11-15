@@ -4,41 +4,44 @@
 
 .caja-date-picker {
     width: 100vw;
-    /* display: grid; */
+   /*  display: grid; */
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   justify-content: center;
 }
 
 .box-date-picker {
-    /* justify-self: center; */
     width: 100vw;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content:space-evenly;
     margin-top: 2vh;
 }
 
 .one-calendar1 {
-    width: 155px;
+    /* width: 155px; */
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .one-calendar2 {
-    width: 155px;
-    margin-left: 2vw;
+    /* width: 155px; */
+    /* margin-left: 2vw; */
     display: flex;
-    
+    flex-wrap: wrap;
+    flex-direction: column;   
 }
 
-.label-desde {
+/* .label-desde {
     flex: 0 0 57.5px; 
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 25px;
     margin-right: 2px;
     margin-bottom: 10px;
-    background-color: rgb(68, 68, 192);
-    color: white;
     border-radius: 3px;
     text-align: center;
     box-sizing: border-box;
@@ -49,25 +52,52 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 25px; 
-    margin-right: 2px;
+    margin-right: -5px;
     margin-bottom: 10px;
-    background-color: rgb(68, 68, 192);
-    color: white;
     border-radius: 3px;
     text-align: center;
     box-sizing: border-box;
-}
+} */
 
 .calendar {
     width: 100px;
     height: 25px;
     font-size: 16px;
+    color: black;
     margin-bottom: 10px;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
-    border: solid 3px blue;
+    border: solid 1px black;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: -3px;
 }
+
+.calendar:hover {
+    background-color: lightgrey;
+}
+
+.label-entrada {
+    display: none;
+}
+
+.show-label-entrada {
+    display: block;
+    font-size: 16px;
+}
+
+.label-salida {
+    display: none;
+}
+
+.show-label-salida {
+    display: block;
+    font-size: 16px;
+}
+
+/* .calendar:hover {
+    background-color: lightgrey;
+} */
 
 .titulo-buscar-fechas {
     margin-top: 2vh;
@@ -220,6 +250,13 @@
 }
 
 @media (min-width: 620px) {
+    .calendar {
+        width: 150px;
+        height: 30px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
     .contenedor-filtro-cabañas {
          width: 600px;
      }
@@ -265,12 +302,28 @@
 }
 
 @media (min-width: 1000px) {
+    .calendar {
+        width: 200px;
+        height: 35px;
+        font-size: 18px;
+    }
+
     .label-desde {
-        flex: 0 0 70px; 
+        /* flex: 0 0 70px; */ 
+        font-size: 18px;
     }
     
     .label-hasta {
-        flex: 0 0 70px;
-        margin-left: 5px;
+        /* flex: 0 0 70px; */
+        /* margin-left: 5px; */
+        font-size: 18px;
+    }
+
+    .show-label-entrada {
+        font-size: 18px;
+    }
+
+    .show-label-salida {
+        font-size: 18px;
     }
 }

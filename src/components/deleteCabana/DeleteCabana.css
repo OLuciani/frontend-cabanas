@@ -1,0 +1,35 @@
+.contenedor-eliminar-cabaña {
+    min-height: 85.5vh;
+}
+
+.titulo-eliminar-cabaña {
+    margin-top: 2vh;
+}
+
+.contenedor-advertencia-delete-cabana {
+    display: grid;
+}
+
+.mensaje-advertencia-delete-cabana {
+    justify-self: center;
+    width: 90%;
+    font-size: 28px;
+    font-weight: 700;
+    color: red;
+}
+
+.boton-delete-cabana {
+    width: 190px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.boton-delete-cabana:hover {
+    background-color: black;
+    color: white;
+}

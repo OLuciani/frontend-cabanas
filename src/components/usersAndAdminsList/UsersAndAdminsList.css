@@ -1,0 +1,32 @@
+.contenedor-general-users-admins {
+    min-height: 85.5vh;
+}
+
+.titulo-users-admins {
+    margin-top: 2vh;
+}
+
+.contenedor-users-and-admins {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around ;
+}
+
+.contenedor-users-and-admins a {
+    text-decoration: none;
+    color: black;
+}
+
+.message-no-users {
+ font-size: 25px;
+ font-weight: 700;
+}
+
+.contenedor-un-user-admin {
+    width: 300px;
+    border: solid 1.5px black;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+}

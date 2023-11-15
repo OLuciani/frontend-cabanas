@@ -14,6 +14,7 @@ const EnviarMail = ({ mensaje, correo }) => {
         };
 
         try {
+          //const response = await axios.post('http://localhost:5005/api/send_mail', emailData);  
           const response = await axios.post('https://cabanas-backend.onrender.com/api/send_mail', emailData);
           console.log('Correo electrónico enviado:', response.data);
         } catch (error) {

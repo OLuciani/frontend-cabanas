@@ -1,0 +1,24 @@
+.titulo-administrador {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.contenedor-administrador {
+    height: 85.5vh;
+}
+
+.boton-user-admin {
+    width: 190px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-weight: 700;
+  }
+
+  .boton-user-admin:hover {
+    background-color: black;
+    color: white;
+  }

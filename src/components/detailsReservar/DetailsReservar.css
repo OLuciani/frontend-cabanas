@@ -1,0 +1,19 @@
+.titulo-details-reservar {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+}
+
+.contenedor-reserva {
+    display: grid;
+}
+
+.article-reservar {
+    justify-self: center;
+    border: solid 1.5px black;
+    padding: 10px;
+    text-align: left;
+}
+
+/* .contenedor-botones-details-reservar {
+
+} */

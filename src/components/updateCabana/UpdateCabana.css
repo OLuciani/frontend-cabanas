@@ -1,0 +1,55 @@
+.ocultar-input {
+    display: none;
+}
+
+.ocultar-input-file {
+    display: none;
+}
+
+.mostrar-input-file {
+    display: block;
+}
+
+.label-input-update-cabana{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.contenedor-inputs-update-cabana {
+    margin-bottom: 10px;
+}
+
+.input-update-cabana {
+    width: 300px;
+    border: solid 2px black;
+    border-radius: 5px;
+}
+
+.boton-update-cabana {
+    width: 190px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.boton-update-cabana:hover {
+    background-color: black;
+    color: white;
+}
+
+
+@media (min-width: 550px) {
+    .input-update-cabana {
+        width: 450px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .input-update-cabana {
+        width: 600px;
+    }
+}
