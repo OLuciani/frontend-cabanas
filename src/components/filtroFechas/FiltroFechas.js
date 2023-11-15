@@ -319,9 +319,9 @@ const FiltroFechas = ({datos}) => {
                     <>
                       <hr />
                       <div className='contenedor-titulo-las-cabañas-disponibles'>
-                        <h4 className='titulo-las-cabañas-disponibles'>
+                        <h5 className='titulo-las-cabañas-disponibles'>
                           Cabañas disponibles por {tdFechas.length} días y {tdFechas.length} noches desde las 10 hs del {fechaDesde.toFormat('dd/MM/yyyy')} hasta las 10 hs del {fechaHasta.toFormat('dd/MM/yyyy')}:
-                        </h4>
+                        </h5>
                       </div>
 
                       <div className='contenedor-chequear-cabañas'>
