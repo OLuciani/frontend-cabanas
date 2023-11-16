@@ -12,7 +12,8 @@ export default function ContextProvider({children}) {
     const [usersAndAdmins, setUsersAndAdmins] = useState([]);
    
     useEffect(() => { 
-        fetch('https://cabanas-backend.onrender.com/api/list')
+        /* fetch('https://cabanas-backend.onrender.com/api/list') */
+        fetch('http://localhost:5005/api/list')
           .then((res) => res.json())
           .then((allCabañas) => {
             setData(allCabañas);
@@ -36,8 +37,8 @@ export default function ContextProvider({children}) {
       }, []);
 
       useEffect(() => { 
-        fetch('https://cabanas-backend.onrender.com/api/register_user_list', {
-        //fetch('http://localhost:5005/api/register_user_list', {
+        //fetch('https://cabanas-backend.onrender.com/api/register_user_list', {
+        fetch('http://localhost:5005/api/register_user_list', {
           method: 'GET',
           headers: {
               'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -49,6 +50,8 @@ export default function ContextProvider({children}) {
           })
           .catch((error) => console.log(error));
       }, []);
+
+     
    
     return (
         <Context.Provider value={{startDate, setStartDate, endDate, setEndDate, data, setData, fechasReservadas, setFechasReservadas, totalDaysReservation, setTotalDaysReservation, listadoDeReservas, setListadoDeReservas, usersAndAdmins, setUsersAndAdmins}}>
