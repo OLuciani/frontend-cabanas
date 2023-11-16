@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from "../context/Context";
 import Footer from '../footer/Footer';
@@ -9,8 +9,13 @@ import "./ListadoReservas.css";
 const ListadoReservas = () => {
   const info = useContext(Context);
 
+  useEffect(() => {
+    console.log('ListadoDeReservas - listadoDeReservas:', info.listadoDeReservas);
+  }, [info.listadoDeReservas]);
+
+
   if (info.listadoDeReservas.length < 1) {
-    return <p>Cargando...</p> // O cualquier otro indicador de carga que prefieras
+    return <p>Cargando...</p> 
   }
   
   return (
