@@ -341,7 +341,7 @@ const Reservar = () => {
   };
 
   const reservarDates = async () => {
-    await fetch(`https://cabanas-backend.onrender.com/api/update_cabana/${_id}`, {
+    await fetch(`https://cabanas-backend.onrender.com/cabanas/update/${_id}`, {
     /* await fetch(`http://localhost:5005/cabanas/update/${_id}`, { */
       method: "PUT",
       headers: {
