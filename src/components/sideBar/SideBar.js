@@ -1,10 +1,17 @@
-import React from 'react';
+//import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ComponentNavbar from '../componentNavBar/ComponentNavBar';
 import "./SideBar.css";
 
 const SideBar = () => {
     const handleLogout = () => {
+      /*   const [startOrEndSesion, setShowStartOrEndSesion] = useState("");
+
+        if (localStorage.getItem('role') === 'admin') {
+            setShowStartOrEndSesion("/")
+        } */
+
+
         // Eliminar el token y el rol del usuario del local storage
         localStorage.removeItem('token');
         localStorage.removeItem('role');
@@ -34,23 +41,33 @@ const SideBar = () => {
             <Link to="/contact"><ComponentNavbar name={"Contacto"} /></Link>
             </div>
 
+            {localStorage.getItem('role') === 'admin' && (
+            <div onClick={()=>{let mostrar = document.querySelector(".sidebar");
+                mostrar.style.display = "none"}} className="component-sidebar">
+            <Link to="/admin"><ComponentNavbar name={"Admin"} /></Link>
+            </div>
+             )} 
+    
+
              {/* Mostrar el botón "Crear cabaña" solo si el usuario tiene el rol de "admin" */}
-             {localStorage.getItem('role') === 'admin' && (
+            {/*  {localStorage.getItem('role') === 'admin' && (
             <div onClick={()=>{let mostrar = document.querySelector(".sidebar");
                 mostrar.style.display = "none"}} className="component-sidebar">
             <Link to="/createCabaña"><ComponentNavbar name={"Crear cabaña"} /></Link>
             </div>
-             )}
+             )} */}
 
-            <div onClick={()=>{let mostrar = document.querySelector(".sidebar");
+            {<div onClick={()=>{let mostrar = document.querySelector(".sidebar");
                 mostrar.style.display = "none"}} className="component-sidebar">
             <Link to="/register"><ComponentNavbar name={"Registrate"} /></Link>
-            </div>
+            </div>}
 
+            {localStorage.getItem('role') !== 'admin' && (
             <div onClick={()=>{let mostrar = document.querySelector(".sidebar");
                 mostrar.style.display = "none"}} className="component-sidebar">
-            <Link to="/login"><ComponentNavbar name={"Login"} /></Link>
+            <Link to="/login"><ComponentNavbar name={"Iniciar sesión"} /></Link>
             </div>
+            )}
 
             {/* Mostrar el botón "Cerrar sesión" solo si el usuario tiene el rol de "admin" */}
             {localStorage.getItem('role') === 'admin' && (
