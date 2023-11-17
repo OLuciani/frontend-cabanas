@@ -22,6 +22,9 @@ export default function ContextProvider({children}) {
       }, []);
 
       useEffect(() => { 
+        const token = localStorage.getItem('token');
+        console.log('Token from localStorage:', token);
+
           fetch('https://cabanas-backend.onrender.com/api/reservation_register', {
           //fetch('http://localhost:5005/api/reservation_register', {
           method: 'GET',

@@ -24,7 +24,7 @@ import DetailsReservar from './components/detailsReservar/DetailsReservar';
 import DeleteReserva from './components/deleteReserva/DeleteReserva';
 import UsersAndAdminsList from './components/usersAndAdminsList/UsersAndAdminsList';
 import DetailsUsers from './components/detailsUsers/DetailsUsers';
-import UpdateUser from './components/detailsUsers/updateUser/UpdateUser';
+import UpdateUser from './components/updateUser/UpdateUser';
 import DeleteUser from './components/deleteUser/DeleteUser';
 
 function App() {

@@ -19,6 +19,7 @@ const EditCabana = () => {
     if (shouldFetchData) {
       // Realizo una llamada a la API para obtener los datos actualizados
       fetch('https://cabanas-backend.onrender.com/api/list')
+      //fetch('http://localhost:5005/api/list')
         .then((res) => res.json())
         .then((allCabañas) => {
           informacion.setData(allCabañas);
@@ -64,7 +65,7 @@ const EditCabana = () => {
                               <img
                                 className="images-cabaña"
                                 src={`https://cabanas-backend.onrender.com/${image}`}
-                                /* src={`http://localhost:5005/${image}`} */
+                               /*  src={`http://localhost:5005/${image}`} */
                                 alt={`Imagen ${image}`}
                               />
                             </div>

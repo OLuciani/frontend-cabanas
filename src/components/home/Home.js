@@ -21,7 +21,7 @@ const Home = () => {
     if (shouldFetchData) {
       // Realizo una llamada a la API para obtener los datos actualizados
       fetch('https://cabanas-backend.onrender.com/api/list')
-      /* fetch('http://localhost:5005.com/api/list') */
+      //fetch('http://localhost:5005/api/list')
         .then((res) => res.json())
         .then((allCabañas) => {
           informacion.setData(allCabañas);

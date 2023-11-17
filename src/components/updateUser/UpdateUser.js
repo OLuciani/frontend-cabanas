@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import Footer from '../../footer/Footer';
-import NavBar from '../../navBar/NavBar';
-import SideBar from '../../sideBar/SideBar';
+import Footer from '../footer/Footer';
+import NavBar from '../navBar/NavBar';
+import SideBar from '../sideBar/SideBar';
 import "./UpdateUser.css";
 import { useParams, useNavigate } from "react-router-dom";
-import { Context } from "../../context/Context";
+import { Context } from "../context/Context";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -32,7 +32,7 @@ const UpdateUser = () => {
     try {
       // Actualizar la lista de reservas en el context
       //const response = await fetch('http://localhost:5005/api/register_user_list', {
-        const response = await fetch('https://cabanas-backend.onrender.com/api/register_user_list', {
+      const response = await fetch('https://cabanas-backend.onrender.com/api/register_user_list', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -61,7 +61,7 @@ const UpdateUser = () => {
             delete userData.newPassword;
           }
           // Realizar la lógica para enviar los datos del registro al backend
-          /* const response = await axios.put(`http://localhost:5005/api/update_user/${_id}`, data); */ 
+          //const response = await axios.put(`http://localhost:5005/api/update_user/${_id}`, data); 
           const response = await axios.put(`https://cabanas-backend.onrender.com/api/update_user/${_id}`, data);
           console.log(response.data);
           console.log('Se enviaron los datos del usuario al backend correctamente');

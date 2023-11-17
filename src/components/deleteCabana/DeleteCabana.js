@@ -50,7 +50,7 @@ const DeleteCabana = () => {
     const handleDeleteCabana = async () => {
         try {
             //const response = await fetch(`http://localhost:5005/api/delete_cabana/${_id}`, {
-                const response = await fetch(`https://cabanas-backend.onrender.com/api/delete_cabana/${_id}`, {
+            const response = await fetch(`https://cabanas-backend.onrender.com/api/delete_cabana/${_id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`

@@ -341,8 +341,8 @@ const Reservar = () => {
   };
 
   const reservarDates = async () => {
-    /* await fetch(`http://localhost:5005/api/update_cabana/${_id}`, { */
-    await fetch(`http://localhost:5005/cabanas/update/${_id}`, {
+    await fetch(`https://cabanas-backend.onrender.com/api/update_cabana/${_id}`, {
+    /* await fetch(`http://localhost:5005/cabanas/update/${_id}`, { */
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -389,7 +389,7 @@ const Reservar = () => {
       });
 
       try {
-        //const response = await axios.post('http://localhost:5005/api/send_mail', emailData); https://cabanas-backend.onrender.com
+        //const response = await axios.post('http://localhost:5005/api/send_mail', emailData); 
         const response = await axios.post('https://cabanas-backend.onrender.com/api/send_mail', emailData);
         console.log('Correo electrónico enviado:', response.data);
       } catch (error) {
