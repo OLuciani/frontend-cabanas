@@ -41,6 +41,10 @@
   .button-navBar {
     display: none;
   }
+
+  .user-name {
+    color: white;
+  }
   
   /* @media (min-width: 426px) { */
     @media (min-width: 730px) {

@@ -28,7 +28,7 @@ const UsersAndAdminsList = () => {
                         <article>
                         <p><b>Nombre:</b> {user.user_name}</p>
                         <p><b>Email:</b> {user.email}</p>
-                        <p><b>Password:</b> {user.password}</p>
+                        {/* <p><b>Password:</b> {user.password}</p> */}
                         </article>
                     </div>
                     </Link>
