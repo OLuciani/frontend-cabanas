@@ -254,9 +254,12 @@ import axios from 'axios';
 import NavBar from '../navBar/NavBar';
 import SideBar from '../sideBar/SideBar';
 import Footer from '../footer/Footer';
+import { useNavigate } from "react-router-dom";
 
 const RegisterUser = () => {
   const infoBD = useContext(Context);
+
+  const navigate = useNavigate();
 
   const actualizarListadoDeUsuarios = async () => {
     try {
@@ -270,6 +273,7 @@ const RegisterUser = () => {
       });
       const todosLosUsuarios = await response.json();
       infoBD.setUsersAndAdmins(todosLosUsuarios);
+      navigate(`/login`);
     } catch (error) {
       console.log(error);
     }

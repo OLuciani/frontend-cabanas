@@ -55,3 +55,14 @@
   .error-message {
     color: red;
   }
+
+  .show-message {
+    display: none;
+  }
+
+  .show-message-connection {
+    display: block;
+    margin-top: 20%;
+    font-size: 18px;
+    font-weight: 700;
+  }

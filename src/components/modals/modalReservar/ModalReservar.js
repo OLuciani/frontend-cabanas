@@ -267,20 +267,23 @@ export default Reservar; */
 
 import React, { useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-import { Context } from "../context/Context";
+import { Context } from "../../context/Context";
 import { useContext } from "react";
 import { DateTime } from "luxon";
-import "../reservar/Reservar.css";
+import "../modalReservar/ModalReservar.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import EnviarMail from "../enviarEmail/EnviarEmail";
+import EnviarMail from "../../enviarEmail/EnviarEmail";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
-const Reservar = () => {
+
+const ModalReservar = () => {
   const information = useContext(Context);
 
   const form = useRef();
 
-  const { register, handleSubmit, reset } = useForm();
+  //const { register, handleSubmit, reset } = useForm();
 
   const [todasLasFechas, setTodasLasFechas] = useState([]);
   const [bandera, setBandera] = useState(false);
@@ -297,6 +300,8 @@ const Reservar = () => {
     content: ''
   });
   const [nombreUsuario, setNombreUsuario] = useState(""); // Nuevo estado para el nombre del usuario
+  //const [formularioValido, setFormularioValido] = useState(false);
+  const [intentarEnvio, setIntentarEnvio] = useState(true); 
 
   const { _id } = useParams();
   const cabaña = information.data.find((cab) => cab._id === _id);
@@ -342,7 +347,7 @@ const Reservar = () => {
 
   const reservarDates = async () => {
     await fetch(`https://cabanas-backend.onrender.com/cabanas/update/${_id}`, {
-    /* await fetch(`http://localhost:5005/cabanas/update/${_id}`, { */
+    //await fetch(`http://localhost:5005/cabanas/update/${_id}`, { 
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -378,6 +383,9 @@ const Reservar = () => {
 
     information.setStartDate("");
     information.setEndDate("");
+    setTimeout(() => {
+      window.location.replace("/");
+    }, 5000);
   };
 
   const enviarCorreo = async () => {
@@ -397,6 +405,35 @@ const Reservar = () => {
       }
     }
   };
+
+
+
+/*   const enviarCorreo = async () => {
+    console.log('Datos de email:', emailData);
+    console.log('Fechas que reservaste:', fechasQueReservaste);
+  
+    if (emailData.to && fechasQueReservaste) {
+      try {
+        const response = await axios.post('http://localhost:5005/api/send_mail', emailData);
+        // const response = await axios.post('https://cabanas-backend.onrender.com/api/send_mail', emailData);
+        
+        console.log('Correo electrónico enviado:', response.data);
+      } catch (error) {
+        console.error('Error al enviar el correo electrónico:', error);
+      }
+    }
+  }; */
+
+
+  const schema = yup.object().shape({
+    nombre: yup.string().required('Este campo es obligatorio'),
+    apellido: yup.string().required('Este campo es obligatorio'),
+    to: yup.string().email('El formato del email no es válido').required('Este campo es obligatorio'),
+  });
+
+  const { register, handleSubmit, reset, formState: { errors} } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = async (data) => {
     try {
@@ -434,15 +471,15 @@ const Reservar = () => {
       <div className="contenedor-reservar">
         <h3 className="titulo-reservar">Reservar {cabaña.name}</h3>
 
-        <div>
-          <img
+        {<div>
+          {<img
             className="image-reservar"
             /* src={`http://localhost:5005/${cabaña.url_image}`} */     
             src={`https://cabanas-backend.onrender.com/${cabaña.url_image}`}
             alt={`Imagen ${cabaña.name}`}
             loading="lazy"
-          />
-        </div>
+          />}
+        </div>}
 
         <div
           className={`${ocultar ? "ocultar" : null} conteneror-fechas-boton`}
@@ -475,25 +512,45 @@ const Reservar = () => {
           <p className="formulario-reserva">{formulario}</p>
 
           {bandera && (
-            <div className="contenedor-formulario-reservar">
-              <form ref={form} onSubmit={handleSubmit(onSubmit)}>
-                <div className="contenedor-inputs-reservar">
-                  <label className="label-input-reservar">Nombre:</label>
-                  <br />
-                  <input className="campo-input-reservar" type="text" {...register("nombre", { required: true })} onChange={handleNombreInputChange} />
-                </div>
+  <div className={`contenedor-formulario-reservar ${bandera ? null : "ocultar-formulario-reservar"}`}>
+  <form ref={form} onSubmit={handleSubmit(onSubmit)}>
+    <div className="contenedor-inputs-reservar">
+      <label className="label-input-reservar">Nombre:</label>
+      <br />
+      <input
+        className="campo-input-reservar"
+        type="text"
+        name="nombre"
+        {...register("nombre")}
+        onChange={handleNombreInputChange}
+      />
+      {intentarEnvio && errors.nombre && <p className="error-message">{errors.nombre.message}</p>}
+    </div>
 
-                <div className="contenedor-inputs-reservar">
-                  <label className="label-input-reservar">Apellido:</label>
-                  <br />
-                  <input className="campo-input-reservar" type="text" {...register("apellido", { required: true })} />
-                </div>
+    <div className="contenedor-inputs-reservar">
+      <label className="label-input-reservar">Apellido:</label>
+      <br />
+      <input
+        className="campo-input-reservar"
+        type="text"
+        name="apellido"
+        {...register("apellido")}
+      />
+      {intentarEnvio && errors.apellido && <p className="error-message">{errors.apellido.message}</p>}
+    </div>
 
-                <div className="contenedor-inputs-reservar">
-                  <label className="label-input-reservar">Email:</label>
-                  <br />
-                  <input className="campo-input-reservar" type="email" name="to" value={emailData.to} onChange={handleInputChange} />
-                </div>
+    <div className="contenedor-inputs-reservar">
+      <label className="label-input-reservar">Email:</label>
+      <br />
+      <input
+        className="campo-input-reservar"
+        type="email"
+        name="to"
+        {...register("to")}
+        onChange={handleInputChange}
+      />
+      {intentarEnvio && errors.to && <p className="error-message">{errors.to.message}</p>}
+    </div>
 
                 <div>
                   <input className="ocultar-input" type="text" {...register("nombre_cabaña")} value={cabaña.name} />
@@ -517,7 +574,16 @@ const Reservar = () => {
 
                 <br />
 
-                <button className="boton-confirmar-reserva" type="submit" onClick={reservarDates}>Reservar</button>
+                <button
+                  className="boton-confirmar-reserva"
+                  type="submit"
+                  onClick={() => {
+                    // Mostrar mensajes de error si el formulario no es válido
+                    setIntentarEnvio(true);
+                  }}
+                >
+                  Reservar
+                </button>
               </form>
             </div>
           )}
@@ -538,4 +604,4 @@ const Reservar = () => {
   );
 };
 
-export default Reservar;
+export default ModalReservar;

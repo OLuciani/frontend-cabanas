@@ -24,6 +24,7 @@ const Login = () => {
   });
 
   const [loginMessage, setLoginMessage] = useState("");
+  const [showMessageConnection, setShowMessageConnection] = useState();
 
   const onSubmit = async (data) => {
     try {
@@ -43,7 +44,7 @@ const Login = () => {
       console.log("Inicio de sesión exitoso");
 
       // Redirigir al usuario a la página deseada después del inicio de sesión exitoso
-      window.location.replace("/"); // Cambiar '/create-cabana' por la ruta que deseas redireccionar
+      window.location.replace("/"); 
 
       // Limpiar el formulario después de enviar los datos
       reset();
@@ -56,6 +57,15 @@ const Login = () => {
       }
     }
   };
+
+  const onClickWaitingForConnection = () => {
+    (!localStorage.getItem("token")) 
+      ? setShowMessageConnection("show-message-connection")
+      : setShowMessageConnection("")
+  }
+  
+
+ 
 
   return (
     <>
@@ -82,12 +92,14 @@ const Login = () => {
           </div>
 
           <div className="contenedor-boton-login">
-            <button className="button-login" type="submit">
+            <button className="button-login" type="submit" onClick={onClickWaitingForConnection}>
               Iniciar Sesión
             </button>
           </div>
         </form>
         {loginMessage && <p>{loginMessage}</p>}
+
+        <p className={`show-message ${showMessageConnection}`}>Esperando conexión...</p>
       </div>
 
       <Footer />

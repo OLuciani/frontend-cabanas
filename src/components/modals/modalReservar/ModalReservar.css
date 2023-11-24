@@ -7,7 +7,7 @@
 }
 
 .image-reservar {
-    width: 90%;
+    width: 35%;
     /* height: 225px; */
     margin-bottom: 3vh;
 }
@@ -70,7 +70,8 @@
 }
 
 .campo-input-reservar {
-    width: 300px;
+    /* width: 300px; */
+    width: 95%;
     border-radius: 5px;
 }
 
@@ -123,22 +124,27 @@
 }
   
 
+@media (min-width: 550px) {
+    .campo-input-reservar {
+        width: 350px; 
+    }
+}
 
 @media (min-width: 550px) {
     .image-reservar {
-       width: 70%;
+       width: 35%;
     }
 }
 
 @media (min-width: 700px) {
     .image-reservar {
-       width: 50%;
+       width: 30%;
     }
 }
 
 @media (min-width: 1000px) {
     .image-reservar {
-       width: 40%;
+       width: 30%;
     }
 }
 

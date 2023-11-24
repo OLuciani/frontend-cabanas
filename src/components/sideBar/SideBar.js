@@ -99,7 +99,7 @@ const SideBar = () => {
             }}
             className="component-sidebar"
           >
-            <Link to="/register">
+            <Link to="/registerUser">
               <ComponentNavbar name={"Registrate"} />
             </Link>
           </div>
@@ -126,7 +126,7 @@ const SideBar = () => {
         )}
 
         {/* Mostrar el botón "Cerrar sesión" solo si el usuario tiene el rol de "admin" */}
-        {localStorage.getItem("role") === "admin" && (
+        {localStorage.getItem("token") && (
           <div className="component-sidebar">
             <button onClick={handleLogout}>Cerrar sesión</button>
           </div>

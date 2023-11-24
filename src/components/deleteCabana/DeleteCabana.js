@@ -81,7 +81,7 @@ const DeleteCabana = () => {
             <SideBar />
 
             <div className='contenedor-eliminar-cabaña'>
-                <h3 className='titulo-eliminar-cabaña'>Eliminar cabaña</h3>
+                {/* <h3 className='titulo-eliminar-cabaña'>Eliminar cabaña</h3> */}
 
                 <div className='contenedor-advertencia-delete-cabana'>
                     <p className='mensaje-advertencia-delete-cabana'>ATENCIÓN !! <br />Estás por eliminar de la Base de Datos la cabaña {`"${cabaña.name}"`}</p>

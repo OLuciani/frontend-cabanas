@@ -204,7 +204,8 @@ import { Carousel, Container } from "react-bootstrap";
 import NavBar from "../navBar/NavBar";
 import SideBar from "../sideBar/SideBar";
 import Footer from "../footer/Footer";
-import Reservar from "../reservar/Reservar";
+import ModalReservar from "../modals/modalReservar/ModalReservar";
+import ModalUsuarioNoRegistrado from "../modals/modalUsuarioNoRegistrado/ModalUsuarioNoRegistrado";
 
 const DetallesCabana = () => {
   const infoBD = useContext(Context);
@@ -259,13 +260,23 @@ const DetallesCabana = () => {
   let cabaña = infoBD.data.find((cab) => cab._id === _id);
   let images = cabaña.url_images;
 
-  const [ocultarContenedor, setOcultarContenedor] = useState("");
+  //const [ocultarContenedor, setOcultarContenedor] = useState("");
   const [mostrarComponenteReservar, setMostrarComponenteReservar] = useState(false);
+  const [mostrarModalUsuarioNoRegistrado, setMostrarModalUsuarioNoRegistrado] = useState("");
 
   const onClickOcultar = () => {
-    setOcultarContenedor("ocultar-cont-det-cab");
-    setMostrarComponenteReservar(true);
+    const token = localStorage.getItem("token");
+    if (token) {
+      //setOcultarContenedor("ocultar-cont-det-cab");
+      setMostrarComponenteReservar(true);
+    } else {
+      setMostrarModalUsuarioNoRegistrado("mostrar-modal-no-registrado");
+    }
   };
+
+  const onClickOcultarModalUNR = () => {
+    setMostrarModalUsuarioNoRegistrado("");
+  }
 
   useLayoutEffect(() => {
     const handleBeforeUnload = () => {
@@ -284,11 +295,14 @@ const DetallesCabana = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const onClickOcultarReservar = () => {
+    setMostrarComponenteReservar(false);
+  }
   return (
     <>
       <NavBar />
 
-      <div className={`contenedor-detalles-cabana ${ocultarContenedor}`}>
+      <div className={`contenedor-detalles-cabana`}> {/*En esta clase iba esto ${ocultarContenedor} */}
         <Container className="carousel-container">
           <Carousel fade>
             {images.map((image, index) => (
@@ -296,7 +310,7 @@ const DetallesCabana = () => {
                 <img
                   className="imagen-carousel"
                   src={`https://cabanas-backend.onrender.com/${image}`}
-                  /* src={`http://localhost:5005/${image}`} */
+                  /* src={`http://localhost:5005/${image}`}  */
                   alt={`Imagen ${index}`}
                 />
                 <Carousel.Caption className="carousel-caption">
@@ -315,6 +329,10 @@ const DetallesCabana = () => {
                   <button className="boton-editar">Editar cabaña</button>
                 </Link>
 
+                <Link to={`/verFechas/${cabaña._id}`}>
+                  <button className="boton-fechas-disponibles">Fechas Disponibles</button>
+                </Link>
+
                 <Link to={`/deleteCabana/${_id}`}>
                   <button className="boton-eliminar">Eliminar cabaña</button>
                 </Link>
@@ -324,15 +342,28 @@ const DetallesCabana = () => {
        
 
 
-        {infoBD.startDate !== "" && infoBD.endDate !== "" ? (
+        {/* {infoBD.startDate !== "" && infoBD.endDate !== "" ? (
           <button className="boton-fechas-disponibles" onClick={onClickOcultar}>
             Iniciar Reserva
           </button>
         ) : (
           <Link to={`/verFechas/${cabaña._id}`}>
-            <button className="boton-fechas-disponibles">Fechas Disponibles</button>
+            <p className="boton-fechas-disponibles">Fechas Disponibles</p>
           </Link>
-        )}
+        )} */}
+
+        {infoBD.startDate !== "" && infoBD.endDate !== "" &&  
+          (<button className="boton-fechas-disponibles" onClick={onClickOcultar}>
+            Iniciar Reserva
+          </button>)
+        }
+
+       {/*  {
+          localStorage.getItem("role") === "admin" && 
+          (<Link to={`/verFechas/${cabaña._id}`}>
+            <p className="boton-fechas-disponibles">Fechas Disponibles</p>
+          </Link>)
+        } */}
 
         <div className="contenedor-items-detalles-cabaña">
           <p className="price-detalles-cabaña">
@@ -359,7 +390,33 @@ const DetallesCabana = () => {
         </div>
       </div>
 
-      {mostrarComponenteReservar ? <Reservar /> : null}
+      {/* {infoBD.startDate !== "" && infoBD.endDate !== "" ? (
+          <button className="boton-fechas-disponibles" onClick={onClickOcultar}>
+            Iniciar Reserva
+          </button>
+        ) : (
+          <Link to={`/verFechas/${cabaña._id}`}>
+            <button className="boton-fechas-disponibles">Fechas Disponibles</button>
+          </Link>
+        )} */}
+
+        {
+          <div className="container-modal-usuario-no-registrado">
+            <div className={`usuario-no-registrado ${mostrarModalUsuarioNoRegistrado}`}>
+              <p onClick={onClickOcultarModalUNR} className={`close-usuario-no-registrado`}>X</p>
+
+              <ModalUsuarioNoRegistrado />
+            </div>
+          </div>
+        }
+
+      {mostrarComponenteReservar 
+      ? <div className="content-reservar">
+          <div className="reservar">
+            <p onClick={onClickOcultarReservar} className="close-confirmar-fechas">X</p>
+            <ModalReservar />
+          </div>
+      </div> : null}
 
       <SideBar />
 

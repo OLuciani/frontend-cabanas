@@ -128,7 +128,7 @@ const UpdateCabana = () => {
       <NavBar />
       <SideBar />
 
-      <h3>Editar Cabaña</h3>
+      <h3>Editar Cabaña "{cabana.name}"</h3>
 
       <form ref={form} onSubmit={handleSubmit(onSubmit)}>
         <div className="contenedor-inputs-update-cabana">

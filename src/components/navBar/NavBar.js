@@ -105,7 +105,8 @@ const NavBar = () => {
         </div>
 
         {/* Mostrar el botón "Cerrar sesión" solo si el usuario tiene el rol de "admin" */}
-        {localStorage.getItem("role") === "admin" && (
+        {/* localStorage.getItem("role") === "admin" && ( */
+        localStorage.getItem("token") && (
           <div className="button-navBar">
             <button onClick={handleLogout}>Cerrar sesión</button>
           </div>

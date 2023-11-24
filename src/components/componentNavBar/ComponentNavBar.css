@@ -7,3 +7,10 @@
 .name-button:hover {
     color: white;
 }
+
+
+@media (min-width: 1280px) {
+    .name-button {
+        font-size: 18px;     
+    }
+}

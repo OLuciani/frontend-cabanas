@@ -7,7 +7,7 @@ import Home from './components/home/Home';
 import Contact from './components/contact/Contact';
 import VerFechas from './components/verFechas/VerFechas';
 import DetallesCabana from './components/detallesCabana/DetallesCabana';
-import Reservar from './components/reservar/Reservar';
+//import Reservar from './components/reservar/Reservar';
 import EnviarMail from './components/enviarEmail/EnviarEmail';
 import CreateCabana from './components/createCabana/CreateCabana';
 import EditCabana from './components/editCabana/EditCabana';
@@ -26,6 +26,7 @@ import UsersAndAdminsList from './components/usersAndAdminsList/UsersAndAdminsLi
 import DetailsUsers from './components/detailsUsers/DetailsUsers';
 import UpdateUser from './components/updateUser/UpdateUser';
 import DeleteUser from './components/deleteUser/DeleteUser';
+import ModalReservar from './components/modals/modalReservar/ModalReservar';
 
 function App() {
   
@@ -37,7 +38,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/cabanas" element={<Cabanas />} />
             <Route path="/detallesCabana/:_id" element={<DetallesCabana />} />
-            <Route path="/reservar/:_id" element={<Reservar />} />
+            <Route path="/reservar/:_id" element={<ModalReservar />} />
             <Route path="/detailsReservar/:_id" element={<DetailsReservar />} />
             <Route path="/updateReservar/:_id" element={<UpdateReservar />} />
             <Route path="/deleteReserva/:_id" element={<DeleteReserva />} />
