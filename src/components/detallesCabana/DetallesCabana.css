@@ -1,4 +1,4 @@
-.contenedor-detalles-cabana {
+/* .contenedor-detalles-cabana {
   min-height: 85.5vh;
   position: relative;
 }
@@ -214,10 +214,236 @@
       width: 58vw;
       height: 38.5vw;
     }
+  } */
+  
+  
+  .contenedor-detalles-cabana {
+    min-height: 85.5vh;
+    position: relative;
   }
   
+  .carousel-container {
+    margin-top: 2vh;
+  }
+  
+  .carousel {
+      margin-top: 0px;
+      margin-bottom: 2vh;
+    }
+  
+    .titulo-detalles-cabaña {
+      margin-top: 1vh;
+    }
+    
+    .imagen-carousel {
+        width: 100vw;
+        height:60vw;
+        justify-self: center;
+    }
+  
+    .carousel-caption {
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+  
+    .contenedor-items-detalles-cabaña {
+      width: 90%;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 3vw;
+      text-align: left;
+    }
+  
+    .botones-admin {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    .boton-editar {
+      width: 190px;
+      padding: 5px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      background-color: lightgray;
+      border-radius: 5px;
+      font-weight: 700;
+    }
+  
+    .boton-editar:hover {
+      background-color: black;
+      color: white;
+    }
+  
+    .boton-eliminar {
+      width: 190px;
+      padding: 5px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      background-color: lightgray;
+      border-radius: 5px;
+      font-weight: 700;
+    }
+  
+    .boton-eliminar:hover {
+      background-color: red;
+      color: white;
+    }
+  
+    .boton-fechas-disponibles {
+      width: 190px;
+      font-size: 16px;
+      background-color: lightgray; 
+      border-radius: 5px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-weight: 700;
+    }
+  
+    .boton-fechas-disponibles:hover {
+      background-color: black;
+      color: white;
+    }
+  
+    .ocultar-cont-det-cab {
+      display: none;
+    }
+  
+    .content-reservar {
+      display: grid;
+    }
+  
+    .reservar {
+      justify-self: center;
+      width: 90vw;
+     
+      /* max-height: 90vh; */
+      background-color: white;
+      border: solid 1px black;
+      border-radius: 15px;
+      position: absolute;
+      /* top: 15%; */
+      top: 85px;
+      z-index: 10;
+    }
+  
+    .close-confirmar-fechas {
+      margin-top: 2%;
+      margin-left: 90%;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  
+    .usuario-no-registrado {
+      display: none;
+    }
+  
+    .container-modal-usuario-no-registrado {
+      display: grid;
+      width: 100%;
+      height: 80%;
+     
+    }
+   
+    .mostrar-modal-no-registrado {
+      position: relative;
+      display: block;
+      height: 70%;
+      background-color: white;
+      border: solid 1px black;
+      border-radius: 15px;
+      padding: 2%;
+      position: absolute;
+      top: 25vh;
+      /* z-index: 10; */
+      z-index: 2147483647;
+      justify-self: center;
+      
+    }
+  
+    .close-usuario-no-registrado {
+      position: absolute;
+      font-size:16px;
+      font-weight: 700;
+      top: 10px;
+      right: 25px;
+      cursor: pointer;
+    }
+  
+    .ocultar-modal-unr {
+      display: none;
+    }
+   
   
   
+  
+    @media (min-width: 460px) {
+      .reservar {
+        width: 80%;
+      }
+    }
+  
+    /* @media (min-width: 550px) {
+      .reservar {
+        height: 100vh;
+      }
+    } */
+  
+    @media (min-width: 750px) {
+      .imagen-carousel {
+        width: 80vw;
+        height: 54vw;
+      }
+  
+      .reservar {
+        width: 80%;
+        /* height: 110vh; */
+        /* max-height: 78vh; */
+      }
+  
+      .close-confirmar-fechas {
+        font-size: 18px;  
+      }
+    }
+  
+    @media (min-width: 900px) {
+      .imagen-carousel {
+        width: 60vw;
+       /*  height: 40vw; */
+      }
+    }
+  
+    @media (min-width: 1200px) {
+      .imagen-carousel {
+        width: 51vw;
+        /* height: 34vh; */
+      }
+  
+      .reservar {
+        height: 82vh;
+      }
+    }
+  
+    @media (min-width: 1400px) {
+      .reservar {
+        top:200px;
+        height: 88vh;
+       /*  max-height: 90vh; */
+      }
+    }
+    
+    @media (min-width: 1800px) {
+      .imagen-carousel {
+        width: 58vw;
+        /* height: 38.5vw; */
+      }
+    } 
   
   
   

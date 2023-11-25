@@ -1,3 +1,158 @@
+/* .contenedor-reservar {
+    min-height: 85.5vh;
+}
+
+.titulo-reservar {
+    margin-top: 2vh;
+}
+
+.image-reservar {
+    width: 35%;
+    margin-bottom: 3vh;
+}
+
+.conteneror-fechas-boton {
+    display: grid;
+}
+
+.contenedor-entrada-salida {
+    width: 250px;
+    justify-self: center;
+}
+
+.fecha-reserva {
+    text-align: left;
+}
+
+.boton-confirmar-fechas {
+    margin-bottom: 3vh;
+    width: 190px;
+    padding: 5px;
+    font-size: 18px;
+    justify-self: center;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: lightgray;
+}
+
+.boton-confirmar-fechas:hover {
+    background-color: black;
+    color: white
+}
+
+.ocultar {
+    display: none;
+}
+
+.contenedor-dias-a-reservar {
+    display: grid;
+}
+
+.dias-a-reservar {
+    width: 90%;
+    justify-self: center;
+}
+
+.contenedor-inputs-reservar {
+    margin-bottom: 10px;
+}
+
+.formulario-reserva {
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.label-input-reservar {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.campo-input-reservar {
+    width: 95%;
+    border-radius: 5px;
+}
+
+.ocultar-input {
+    display: none ;
+}
+
+.boton-confirmar-reserva {
+    width: 190px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    justify-self: center;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: lightgray;
+}
+
+.boton-confirmar-reserva:hover {
+    background-color: black;
+    color: white
+}
+
+.ocultar-formulario-reservar {
+    display: none;
+}
+
+.contenedor-mesagge-fechas-q-reservaste {
+    display: grid;  
+}
+
+
+.mesagge-fechas-q-reservaste {
+    width: 95%;
+    justify-self: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    color: salmon;
+}
+
+.mesagge-mail-enviado {
+    width: 95%;
+    justify-self: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 22px;
+    font-weight: 600;
+}
+  
+
+@media (min-width: 550px) {
+    .campo-input-reservar {
+        width: 350px; 
+    }
+}
+
+@media (min-width: 550px) {
+    .image-reservar {
+       width: 35%;
+    }
+}
+
+@media (min-width: 700px) {
+    .image-reservar {
+       width: 30%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .image-reservar {
+       width: 30%;
+    }
+}
+
+@media (min-width: 1250px) {
+    .image-reservar {
+        width: 30%;
+     }
+} */
+
+
 .contenedor-reservar {
     min-height: 85.5vh;
 }
@@ -54,9 +209,9 @@
     justify-self: center;
 }
 
-.contenedor-inputs-reservar {
+/* .contenedor-inputs-reservar {
     margin-bottom: 10px;
-}
+} */
 
 .formulario-reserva {
     font-size: 22px;

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from "../context/Context";
 import Footer from '../footer/Footer';
@@ -9,6 +9,15 @@ import "./ListadoReservas.css";
 const ListadoReservas = () => {
   const info = useContext(Context);
 
+  const [listado, setListado] = useState([]);
+
+ useEffect(() => {
+   if(info){
+     setListado([...info.listadoDeReservas].reverse());
+   }
+ }, [info])
+ 
+
   useEffect(() => {
     console.log('ListadoDeReservas - listadoDeReservas:', info.listadoDeReservas);
   }, [info.listadoDeReservas]);
@@ -17,6 +26,8 @@ const ListadoReservas = () => {
   if (info.listadoDeReservas.length < 1) {
     return <p>Cargando...</p> 
   }
+
+  
   
   return (
     <>
@@ -28,12 +39,13 @@ const ListadoReservas = () => {
             <h3 className='titulo-listado-reservas'>Listado de reservas</h3>
 
             <div className="contenedor-listado-reservas">
-                {info.listadoDeReservas.length < 1 ? (
+                {
+                listado.length < 1 ? (
                     <p className="cargando-imagenes-listado-reservas">No hay reservas para mostrar...</p>
                 ) : (
-                    info.listadoDeReservas.map((reserva) => (
+                    
+                    listado.map((reserva) => (
                     <Link to={`/detailsReservar/${reserva._id}`} key={reserva._id}>
-                    {/* <Link to={`/updateReservar/${reserva._id}`} key={reserva._id}> */}
                     <div className="contenedor-una-reserva">
                         <article>
                         <p><b>Nombre del cliente:</b> {reserva.nombre}</p>
