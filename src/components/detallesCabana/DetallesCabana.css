@@ -220,6 +220,7 @@
   .contenedor-detalles-cabana {
     min-height: 85.5vh;
     position: relative;
+    
   }
   
   .carousel-container {
@@ -315,20 +316,21 @@
     }
   
     .content-reservar {
+      width: 100%;
       display: grid;
     }
   
     .reservar {
       justify-self: center;
       width: 90vw;
-      height: auto;
-      /* max-height: 90vh; */
+      /* height: auto; */
+      min-height: 600px;
       background-color: white;
       border: solid 1px black;
       border-radius: 15px;
       position: absolute;
       /* top: 15%; */
-      top: 85px;
+      top: 25px;
       z-index: 10;
     }
   
@@ -416,24 +418,29 @@
         width: 60vw;
        /*  height: 40vw; */
       }
+
+      .reservar {
+        top: 85px;
+        width: 65vw;
+      }
     }
   
-    @media (min-width: 1200px) {
+    @media (min-width: 1150px) {
       .imagen-carousel {
         width: 51vw;
         /* height: 34vh; */
       }
   
       .reservar {
-      /*   height: 100vh; */
-        top: 200px;
+        min-height: 800px;
+        top: 85px;
       }
     }
   
     @media (min-width: 1400px) {
       .reservar {
+        min-height: 950px;
        
-        height: 107vh;
       }
     }
     

@@ -388,15 +388,14 @@ const DetallesCabana = () => {
             <b>Precio por día:</b> $ {cabaña.price}
           </p>
         </div>
-      </div>
 
       {/* {infoBD.startDate !== "" && infoBD.endDate !== "" ? (
-          <button className="boton-fechas-disponibles" onClick={onClickOcultar}>
-            Iniciar Reserva
-          </button>
+        <button className="boton-fechas-disponibles" onClick={onClickOcultar}>
+        Iniciar Reserva
+        </button>
         ) : (
           <Link to={`/verFechas/${cabaña._id}`}>
-            <button className="boton-fechas-disponibles">Fechas Disponibles</button>
+          <button className="boton-fechas-disponibles">Fechas Disponibles</button>
           </Link>
         )} */}
 
@@ -417,6 +416,7 @@ const DetallesCabana = () => {
             <ModalReservar />
           </div>
       </div> : null}
+        </div>
 
       <SideBar />
 
