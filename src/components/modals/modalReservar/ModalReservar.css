@@ -154,7 +154,8 @@
 
 
 .contenedor-reservar {
-    min-height: 85.5vh;
+    /* min-height: 85.5vh; */
+    height: auto;
 }
 
 .titulo-reservar {

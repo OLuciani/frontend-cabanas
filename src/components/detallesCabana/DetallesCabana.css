@@ -321,7 +321,7 @@
     .reservar {
       justify-self: center;
       width: 90vw;
-     
+      height: auto;
       /* max-height: 90vh; */
       background-color: white;
       border: solid 1px black;
@@ -383,11 +383,11 @@
   
   
   
-    @media (min-width: 460px) {
+   /*  @media (min-width: 460px) {
       .reservar {
         width: 80%;
       }
-    }
+    } */
   
     /* @media (min-width: 550px) {
       .reservar {
@@ -401,11 +401,10 @@
         height: 54vw;
       }
   
-      .reservar {
+      /* .reservar {
         width: 80%;
-        /* height: 110vh; */
-        /* max-height: 78vh; */
-      }
+
+      } */
   
       .close-confirmar-fechas {
         font-size: 18px;  
@@ -426,15 +425,15 @@
       }
   
       .reservar {
-        height: 82vh;
+      /*   height: 100vh; */
+        top: 200px;
       }
     }
   
     @media (min-width: 1400px) {
       .reservar {
-        top:200px;
-        height: 88vh;
-       /*  max-height: 90vh; */
+       
+        height: 107vh;
       }
     }
     
@@ -442,6 +441,11 @@
       .imagen-carousel {
         width: 58vw;
         /* height: 38.5vw; */
+      }
+
+      .reservar {
+        height: 110vh;
+        top: 200px;
       }
     } 
   
