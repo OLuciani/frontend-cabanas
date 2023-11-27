@@ -155,7 +155,10 @@
 
 .contenedor-reservar {
     /* min-height: 85.5vh; */
-    height: auto;
+    /* height: auto; */
+  /*   background-color: lime; */
+    
+    height: 100%;
 }
 
 .titulo-reservar {
