@@ -385,7 +385,7 @@ const ModalReservar = () => {
     information.setEndDate("");
     setTimeout(() => {
       window.location.replace("/");
-    }, 5000);
+    }, 10000);
   };
 
   const enviarCorreo = async () => {
@@ -436,9 +436,20 @@ const ModalReservar = () => {
   });
 
   const onSubmit = async (data) => {
+    const newData = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      email: data.to,
+      nombre_cabaña: data.nombre_cabaña,
+      fecha_reserva: data.fecha_reserva,
+      cantidad_días: data.cantidad_días,
+      fecha_entrada: data.fecha_entrada,
+      fecha_salida: data.fecha_salida,
+    }
+    console.log(newData)
     try {
       //const response = await axios.post("http://localhost:5005/api/reservation_register", data); 
-      const response = await axios.post("https://cabanas-backend.onrender.com/api/reservation_register", data);
+      const response = await axios.post("https://cabanas-backend.onrender.com/api/reservation_register", newData);
       console.log(response.data); 
       console.log("Se enviaron los datos del cliente a la Base de Datos");
       // Limpiar los campos después del envío exitoso
